@@ -220,7 +220,7 @@
       cursor: pointer;
       position: relative;
       transition: transform 0.15s ease;
-      min-width: 65px;
+      min-width: 68px;
     }
     .player-card:active {
       transform: scale(0.93);
@@ -783,8 +783,8 @@
       position: relative;
       z-index: 5;
     }
-    .pitch-row { min-height: 62px; }
-    .slot-card { min-width: 62px; max-width: 76px; }
+    .pitch-row { min-height: 72px; }
+    .slot-card { min-width: 68px; max-width: 82px; }
     .slot-card .jersey.empty {
       background: rgba(15,23,42,.72);
       border: 2px dashed rgba(255,255,255,.45);
@@ -807,23 +807,27 @@
     .picker-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,.78);
-      z-index: 70;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 20000 !important;
       display: none;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
+      padding: 16px;
+      backdrop-filter: blur(8px);
     }
-    .picker-overlay.open { display: flex; }
+    .picker-overlay.open { display: flex !important; }
     .picker {
       width: 100%;
       max-width: 480px;
-      max-height: 86vh;
+      max-height: 88vh;
       background: #111827;
-      border-radius: 20px 20px 0 0;
-      padding: 16px;
-      border-top: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
       display: flex;
       flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+      position: relative;
     }
     .picker-header {
       display: flex;
@@ -1413,6 +1417,395 @@
     }
     .mini-act-btn:active {
       transform: scale(0.95);
+    }
+
+
+    /* Subnavegación de Mi Once */
+    .canchita-subnav {
+      display: flex;
+      background: #111827;
+      padding: 6px;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: sticky;
+      top: 57px;
+      z-index: 35;
+    }
+    .canchita-subnav-btn {
+      flex: 1;
+      padding: 9px 8px;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .canchita-subnav-btn:hover {
+      background: rgba(51, 65, 85, 0.8);
+      color: #ffffff;
+    }
+    .canchita-subnav-btn.active {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.25) 0%, rgba(16, 185, 129, 0.15) 100%);
+      border-color: #22c55e;
+      color: #86efac;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+    }
+
+    /* Barra Táctica Mínima en la Cancha */
+    .pitch-minimal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .pitch-stat-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #cbd5e1;
+    }
+    .pitch-quick-badge {
+      background: rgba(251, 191, 36, 0.15);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      color: var(--gold);
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    /* Chips de Clubes en el Mercado */
+    .club-chips-carousel {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 6px 0 10px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 4px;
+    }
+    .club-chips-carousel::-webkit-scrollbar {
+      display: none;
+    }
+    .club-chip-btn {
+      flex-shrink: 0;
+      padding: 5px 11px;
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+    .club-chip-btn:hover {
+      background: #334155;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .club-chip-btn.active {
+      background: rgba(251, 191, 36, 0.22);
+      border-color: #fbbf24;
+      color: #fef08a;
+      box-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+    }
+
+    /* Ordenación en el Mercado */
+    .market-sort-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .sort-chip {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 800;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .sort-chip:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .sort-chip.active {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: #22c55e;
+      color: #86efac;
+    }
+
+
+    /* ==========================================
+       ESTILOS: CREADOR DE ESCUDOS, COPA Y BOLSA
+       ========================================== */
+    .edit-badge-btn {
+      background: rgba(251, 191, 36, 0.15);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      color: var(--gold);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      transition: all 0.15s ease;
+    }
+    .edit-badge-btn:hover {
+      background: rgba(251, 191, 36, 0.3);
+      border-color: #fbbf24;
+    }
+
+    /* Modal Creador de Escudos */
+    .badge-builder-preview-box {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 70%);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+    .badge-builder-section-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .badge-options-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      scrollbar-width: none;
+    }
+    .badge-opt-btn {
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .badge-opt-btn.active {
+      background: rgba(34, 197, 94, 0.22);
+      border-color: #22c55e;
+      color: #86efac;
+    }
+
+    /* Torneo de Copa / Llaves entre Amigos */
+    .copa-bracket-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 4px 0;
+    }
+    .copa-round-title {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .copa-matchup-card {
+      background: #131b2e;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    .copa-team-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+    .copa-team-row.winner {
+      font-weight: 900;
+      color: #ffffff;
+    }
+    .copa-team-row.winner .copa-pts {
+      color: #4ade80;
+      font-weight: 900;
+    }
+    .copa-team-row.loser {
+      color: #94a3b8;
+      opacity: 0.75;
+    }
+    .copa-pts {
+      font-size: 12.5px;
+      font-weight: 800;
+    }
+
+    /* Bolsa de Valores en Mercado */
+    .market-tab-switcher {
+      display: flex;
+      gap: 6px;
+      background: #111827;
+      padding: 4px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .market-tab-btn {
+      flex: 1;
+      padding: 8px 10px;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .market-tab-btn.active {
+      background: #1e293b;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .stock-ticker-card {
+      background: #131b2e;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .stock-trend-badge {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 8px;
+    }
+    .stock-trend-badge.up {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+    }
+    .stock-trend-badge.down {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+
+
+    /* Alerta de Partido de tu Club en Mi Once y Quiniela */
+    .user-club-match-alert {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.18) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1.5px solid rgba(251, 191, 36, 0.45);
+      border-radius: 12px;
+      padding: 8px 12px;
+      margin: 10px 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+      color: #fef08a;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+    .user-club-match-badge {
+      background: rgba(251, 191, 36, 0.25);
+      border: 1px solid #fbbf24;
+      color: #fef08a;
+      font-size: 9.5px;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Parche de Hincha en la Manga del DT */
+    .dt-fan-patch {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1.5px solid var(--gold);
+      border-radius: 8px;
+      padding: 3px 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 900;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .dt-fan-patch .patch-club {
+      color: var(--gold);
+      font-size: 10px;
+    }
+
+    /* Tabla de Ranking de Aficiones */
+    .fan-rank-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    .fan-rank-table th {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 8px 6px;
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 800;
+      text-align: center;
+    }
+    .fan-rank-table td {
+      padding: 8px 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+    .fan-rank-row.my-club {
+      background: rgba(251, 191, 36, 0.15) !important;
+      border-left: 3px solid #fbbf24;
+      font-weight: 900;
     }
 
     /* CARD DE FUTBOLISTA EN EL PICKER */
@@ -2621,6 +3014,202 @@
       margin-bottom: 10px;
     }
 
+
+    /* ==========================================
+       ESTILOS: REGISTRO, LOGIN Y CLUB FAVORITO
+       ========================================== */
+    .auth-tabs-row {
+      display: flex;
+      background: #111827;
+      padding: 4px;
+      border-radius: 12px;
+      gap: 6px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 9px 8px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 11.5px;
+      font-weight: 800;
+      border-radius: 9px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .auth-tab-btn.active {
+      background: #1e293b;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Grid de Selección Visual de Clubes Mexicanos */
+    .club-select-header-box {
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin: 10px 0 8px;
+    }
+    .club-select-title {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .club-select-sub {
+      font-size: 10px;
+      color: #cbd5e1;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    .club-selection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      max-height: 250px;
+      overflow-y: auto;
+      padding-right: 4px;
+      margin-bottom: 12px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(251, 191, 36, 0.4) transparent;
+    }
+    @media (min-width: 440px) {
+      .club-selection-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .club-choose-card {
+      background: #151d30;
+      border: 1.5px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 9px 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      user-select: none;
+    }
+    .club-choose-card:hover {
+      background: #1e293b;
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+    .club-choose-card.selected {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.18) 0%, rgba(30, 41, 59, 0.95) 100%);
+      border-color: #fbbf24;
+      box-shadow: 0 4px 15px rgba(251, 191, 36, 0.25);
+    }
+    .club-choose-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .club-choose-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .club-choose-name {
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .club-choose-nick {
+      font-size: 9px;
+      color: #94a3b8;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .club-choose-card.selected .club-choose-name {
+      color: #fef08a;
+    }
+    .club-choose-card.selected .club-choose-nick {
+      color: #fbbf24;
+    }
+    .club-check-icon {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      font-size: 10px;
+      color: #4ade80;
+      display: none;
+    }
+    .club-choose-card.selected .club-check-icon {
+      display: block;
+    }
+
+    /* Botón Omitir como invitado */
+    .btn-skip-guest {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+      padding: 6px;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.15s;
+    }
+    .btn-skip-guest:hover {
+      color: #ffffff;
+    }
+
+    /* Tarjeta de Hincha Oficial */
+    .fan-profile-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 1.5px solid rgba(251, 191, 36, 0.45);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+    .fan-badge-strip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .fan-club-badge-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(251, 191, 36, 0.5);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      flex-shrink: 0;
+    }
+
     /* Insignias de Gamificación / Logros */
     .badges-grid {
       display: grid;
@@ -2970,26 +3559,30 @@
        ESTILOS DE CAMISETAS OFICIALES LIGA MX EN EL CAMPO
        =================================================== */
     .pitch-jersey-wrap {
-      width: 46px;
-      height: 48px;
+      width: 58px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      transition: transform 0.15s ease;
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .player-card:hover .pitch-jersey-wrap,
     .player-card:active .pitch-jersey-wrap {
-      transform: scale(1.08) translateY(-2px);
+      transform: scale(1.14) translateY(-3px);
     }
     .pitch-jersey-svg {
-      width: 44px;
-      height: 46px;
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.65));
+      width: 56px;
+      height: 58px;
+      filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.75));
       display: block;
+      transition: filter 0.15s ease;
+    }
+    .player-card:hover .pitch-jersey-svg {
+      filter: drop-shadow(0 7px 14px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 8px rgba(251, 191, 36, 0.35));
     }
     .pitch-jersey-svg.empty {
-      filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.4));
+      filter: drop-shadow(0 3px 10px rgba(34, 197, 94, 0.45));
     }
     .badge-captain-crown {
       position: absolute;
@@ -3640,27 +4233,27 @@
     /* Reflectores de Estadio Cruzados con barrido volumétrico */
     .splash-light-beam-left {
       position: absolute;
-      top: -120px;
-      left: -80px;
-      width: 320px;
-      height: 130vh;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.3) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 75%);
-      transform: rotate(26deg);
+      top: -100px;
+      left: -60px;
+      width: 300px;
+      height: 120vh;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.22) 0%, rgba(56, 189, 248, 0.05) 40%, transparent 65%);
+      transform: rotate(26deg) translate3d(0,0,0);
+      will-change: transform;
       pointer-events: none;
-      filter: blur(28px);
       animation: sweepLightLeft 7s infinite alternate ease-in-out;
       z-index: 2;
     }
     .splash-light-beam-right {
       position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 320px;
-      height: 130vh;
-      background: linear-gradient(225deg, rgba(251, 191, 36, 0.28) 0%, rgba(251, 191, 36, 0.06) 45%, transparent 75%);
-      transform: rotate(-26deg);
+      top: -100px;
+      right: -60px;
+      width: 300px;
+      height: 120vh;
+      background: linear-gradient(225deg, rgba(251, 191, 36, 0.20) 0%, rgba(251, 191, 36, 0.04) 40%, transparent 65%);
+      transform: rotate(-26deg) translate3d(0,0,0);
+      will-change: transform;
       pointer-events: none;
-      filter: blur(28px);
       animation: sweepLightRight 7s infinite alternate ease-in-out;
       z-index: 2;
     }
@@ -3680,7 +4273,6 @@
       height: 420px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(251, 191, 36, 0.38) 0%, rgba(16, 185, 129, 0.2) 40%, rgba(3, 105, 161, 0.08) 65%, transparent 80%);
-      filter: blur(35px);
       animation: pulseGlow 3.5s infinite ease-in-out;
       pointer-events: none;
       z-index: 2;
@@ -4388,213 +4980,285 @@
 
     <!-- TAB 1: MI ONCE -->
     <main class="tab-content active" id="tab-canchita">
-      <div class="once-toolbar">
-        <div>
-          <div class="section-kicker">MI ONCE</div>
-          <h2>Armá tu equipo</h2>
-          <p id="formationSummary">4-3-3 · 1 Arquero · 4 Defensas · 3 Volantes · 3 Delanteros</p>
-        </div>
-        <div class="formation-selector">
-          <button class="formation-btn" data-formation="3-4-3" onclick="changeFormation('3-4-3')">3-4-3</button>
-          <button class="formation-btn" data-formation="3-3-4" onclick="changeFormation('3-3-4')">3-3-4</button>
-          <button class="formation-btn active" data-formation="4-3-3" onclick="changeFormation('4-3-3')">4-3-3</button>
-        </div>
+      <!-- Subnavegación Superior de Mi Once -->
+      <div class="canchita-subnav">
+        <button type="button" class="canchita-subnav-btn active" id="btnSubTabCancha" onclick="switchCanchitaSubTab('cancha')">
+          <span>🏟️ La Cancha</span>
+        </button>
+        <button type="button" class="canchita-subnav-btn" id="btnSubTabTactics" onclick="switchCanchitaSubTab('tactics')">
+          <span>⚡ Táctica & Chips</span>
+        </button>
+        <button type="button" class="canchita-subnav-btn" id="btnSubTabTools" onclick="switchCanchitaSubTab('tools')">
+          <span>📊 Radar & Opciones</span>
+        </button>
       </div>
 
-      
-      <!-- Accesos Directos a Catálogo por Posición -->
-      
-      <!-- Banner Hero Oficial de Jornada 11 -->
-      
-      <!-- Selector Histórico de Fechas de Mi Once -->
-      <div class="once-gw-selector">
-        <span style="font-size: 10px; font-weight: 800; color: var(--gold); text-transform: uppercase; margin-right: 4px;">Fecha Once:</span>
-        <button class="once-gw-chip active" id="chipOnceJ11" onclick="switchOnceGameweek('11')">J11 (Actual)</button>
-        <button class="once-gw-chip" id="chipOnceJ10" onclick="switchOnceGameweek('10')">J10 (64 Pts)</button>
-        <button class="once-gw-chip" id="chipOnceJ9" onclick="switchOnceGameweek('9')">J9 (58 Pts)</button>
-        <button class="once-gw-chip" id="chipOnceJ8" onclick="switchOnceGameweek('8')">J8 (72 Pts)</button>
-      </div>
-
-      <div class="gameweek-hero-card">
-        <div class="hero-bg-lights"></div>
-        <div class="hero-content">
-          <div class="hero-top-badge">
-            <span class="pulse-live-dot"></span>
-            <span>JORNADA 11 · APERTURA 2026</span>
+      <!-- ==========================================
+           VISTA 1: LA CANCHA PURA (SÓLO ONCE + BANCA + DT)
+           ========================================== -->
+      <div id="canchitaViewPitch">
+        <!-- Barra Mínima Superior de Estado de Cancha -->
+        <div class="pitch-minimal-header">
+          <div class="pitch-stat-pill">
+            <span>Esquema:</span>
+            <span class="pitch-quick-badge" id="canchaHeaderFormation" onclick="switchCanchitaSubTab('tactics')" style="cursor: pointer;" title="Toca para cambiar formación">4-3-3 ▾</span>
+            <span style="color: var(--text-muted); font-size: 10px;">(Puesto FLEX: <b id="canchaHeaderFlex" style="color: #38bdf8;">DEF</b>)</span>
           </div>
-          <h2 class="hero-title">Arma tu Once Ideal de la Liga MX</h2>
-          <div class="hero-sub">Presupuesto oficial de 100 Varos · 11 Titulares · 4 Suplentes · 1 DT</div>
-          <div class="hero-stats-row">
-            <div class="hero-stat-item">
-              <span class="hero-stat-label">Cierre de Cambios</span>
-              <span class="hero-stat-val">Vie 9 Oct · 19:00</span>
+          <div class="pitch-stat-pill">
+            <span id="canchaHeaderCaptain" style="color: #fbbf24; font-size: 10.5px;">👑 Vega (C x2)</span>
+            <span style="color: var(--text-muted);">·</span>
+            <span id="canchaHeaderCost" style="color: #4ade80; font-weight: 900;">99.2 V</span>
+          </div>
+        </div>
+
+        <!-- Terreno de Juego Exclusivo de 11 Futbolistas -->
+        <div class="pitch-wrapper">
+          <div class="pitch" id="pitch">
+            <div class="pitch-box-top"></div>
+            <div class="pitch-line-center"></div>
+            <div class="pitch-circle"></div>
+            <div class="pitch-box-bottom"></div>
+            <div id="pitchRows"></div>
+          </div>
+        </div>
+
+        <!-- Banca de Suplentes y DT -->
+        <div class="bench-section">
+          <div class="section-title">
+            <span>Banca de Suplentes (4)</span>
+            <span style="color: var(--gold); font-size: 9.5px;">⚡ Regla del Revulsivo</span>
+          </div>
+          <div class="bench-grid" id="benchGrid"></div>
+
+          <!-- Tarjeta de Director Técnico -->
+          <div class="dt-card clickable-dt">
+            <div class="dt-left" onclick="showHolographicDtCard()" title="Ver ficha táctica holográfica del DT">
+              <div class="dt-icon">👔</div>
+              <div class="dt-info">
+                <h4 id="selectedCoachName">Guillermo Almada</h4>
+                <p id="selectedCoachMeta">Club América · Director Técnico</p>
+              </div>
             </div>
-            <div class="hero-stat-sep"></div>
-            <div class="hero-stat-item">
-              <span class="hero-stat-label">Partido Inaugural</span>
-              <span class="hero-stat-val">Puebla vs León</span>
-            </div>
-            <div class="hero-stat-sep"></div>
-            <div class="hero-stat-item">
-              <span class="hero-stat-label">Clasificación</span>
-              <span class="hero-stat-val" style="color: var(--accent-green);">1-8 Liguilla Directa</span>
+            <div style="display:flex; gap:6px; align-items:center;">
+              <button type="button" class="icon-btn-header" style="padding:4px 8px; font-size:11px; height:auto; border-radius:10px; border-color:rgba(52, 211, 153, 0.5); background:rgba(6, 78, 59, 0.4); color:#86efac;" onclick="event.stopPropagation(); showHolographicDtCard()" title="Ver Ficha Holográfica">📋 Ficha</button>
+              <div class="dt-badge" onclick="openCoachModal()">CAMBIAR</div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="pos-quick-bar">
-        <button class="pos-quick-chip" onclick="openPositionCatalog('GK')">
-          <span class="pos-quick-icon">🧤</span>
-          <span class="pos-quick-name">Porteros</span>
-          <span class="pos-quick-count">41 disp.</span>
-        </button>
-        <button class="pos-quick-chip" onclick="openPositionCatalog('DEF')">
-          <span class="pos-quick-icon">🛡️</span>
-          <span class="pos-quick-name">Defensas</span>
-          <span class="pos-quick-count">117 disp.</span>
-        </button>
-        <button class="pos-quick-chip" onclick="openPositionCatalog('MID')">
-          <span class="pos-quick-icon">⚡</span>
-          <span class="pos-quick-name">Volantes</span>
-          <span class="pos-quick-count">154 disp.</span>
-        </button>
-        <button class="pos-quick-chip active-fwd" onclick="openPositionCatalog('FWD')">
-          <span class="pos-quick-icon">🎯</span>
-          <span class="pos-quick-name">Delanteros</span>
-          <span class="pos-quick-count">92 disp.</span>
-        </button>
-      </div>
-
-      
-      <!-- Comodines de Temporada (Chips Oficiales PAMBOL) -->
-      <div class="chips-section">
-        <div class="chips-header">
-          <span class="chips-title">🚀 Comodines de Temporada</span>
-          <span style="font-size: 10px; color: var(--text-muted);">1 uso por torneo</span>
-        </div>
-        <div class="chips-grid">
-          <div class="chip-btn" id="chipTripleCap" onclick="toggleSeasonChip('TRIPLE_CAP')">
-            <span class="chip-icon">👑</span>
-            <span class="chip-name">Triple Capitán</span>
-            <span class="chip-status" id="chipStatusTC">Disponible</span>
+        <!-- Barra de Validación y Guardado Directa -->
+        <div class="team-validation-bar" style="margin: 0 12px 14px;">
+          <div class="validation-stats">
+            <div class="val-item" id="valStarters">Titulares: <strong>11/11</strong></div>
+            <div class="val-item" id="valBench">Banca: <strong>4/4</strong></div>
+            <div class="val-item" id="valCaptain">Capitán: <strong>Alexis Vega</strong></div>
           </div>
-          <div class="chip-btn" id="chipFreeHit" onclick="toggleSeasonChip('FREE_HIT')">
-            <span class="chip-icon">🔄</span>
-            <span class="chip-name">Fecha Libre</span>
-            <span class="chip-status" id="chipStatusFH">Disponible</span>
-          </div>
-          <div class="chip-btn" id="chipBenchBoost" onclick="toggleSeasonChip('BENCH_BOOST')">
-            <span class="chip-icon">🛡️</span>
-            <span class="chip-name">Banca Blindada</span>
-            <span class="chip-status" id="chipStatusBB">Disponible</span>
-          </div>
+          <button class="btn-save-team" onclick="saveTeamValidation()">
+            <span>💾 Guardar Mi Once (Jornada 11)</span>
+          </button>
         </div>
       </div>
 
-      <div class="pitch-wrapper">
-        <div class="pitch" id="pitch">
-          <div class="pitch-box-top"></div>
-          <div class="pitch-line-center"></div>
-          <div class="pitch-circle"></div>
-          <div class="pitch-box-bottom"></div>
-          <div id="pitchRows"></div>
-        </div>
-      </div>
-
-      <div class="data-panel" id="lineupAnalytics">
-        <div class="data-panel-title">Radar fantasy · Jornada 11</div>
-        <div class="data-panel-sub">Proyección PAMBOL combinando forma, tendencia, posición, disponibilidad y dificultad del rival.</div>
-        <div class="fantasy-strip" id="lineupFantasyStrip"></div>
-        <div class="data-note">Los estados de alineación son <b>predicciones</b>, no confirmaciones oficiales. Cuando no existe señal reciente, PAMBOL lo muestra como “sin confirmación” en lugar de inventar titularidad.</div>
-      </div>
-
-      
-      
-      <!-- Contador de Cierre de Jornada 11 -->
-      <div class="deadline-countdown-bar" id="deadlineToaster">
-        <div class="countdown-left">
-          <span class="countdown-icon">⏰</span>
+      <!-- ==========================================
+           VISTA 2: TÁCTICA & CHIPS (FORMACIONES, COMODINES Y MODIFICADORES)
+           ========================================== -->
+      <div id="canchitaViewTactics" style="display: none; padding: 12px; flex-direction: column; gap: 12px;">
+        <!-- Selector de Formación Táctica -->
+        <div class="once-toolbar" style="margin: 0;">
           <div>
-            <div class="countdown-text-title">Límite de Alineación</div>
-            <div class="countdown-text-sub" id="liveCountdownDisplay">Calculando tiempo...</div>
+            <div class="section-kicker">ESTRATEGIA</div>
+            <h2 style="font-size: 17px; margin: 2px 0;">Formación Táctica</h2>
+            <p id="formationSummary" style="font-size: 11px; color: var(--text-muted); margin: 0;">4-3-3 · 1 Arq · 4 Def · 3 Med · 3 Del</p>
+          </div>
+          <div class="formation-selector">
+            <button class="formation-btn" data-formation="3-4-3" onclick="changeFormation('3-4-3')">3-4-3</button>
+            <button class="formation-btn" data-formation="3-3-4" onclick="changeFormation('3-3-4')">3-3-4</button>
+            <button class="formation-btn active" data-formation="4-3-3" onclick="changeFormation('4-3-3')">4-3-3</button>
           </div>
         </div>
-        <button class="btn-notify-toggle" onclick="requestGameNotification()">
-          <span>🔔 Avisarme</span>
-        </button>
-      </div>
 
-      <!-- Herramientas Interactivas: Simular Jornada & Compartir Once -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin: 0 12px 10px;">
-        
-        <button class="btn-simulate-bar" style="margin: 0; padding: 10px 12px; background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);" onclick="openChallengeModal()">
-          <span>⚔️ Reto 1 vs 1</span>
-          <span style="font-size: 11px; opacity: 0.85;">Duelo ➔</span>
-        </button>
-
-        <button class="btn-simulate-bar" style="margin: 0; padding: 10px 12px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);" onclick="openOfficialScoreCenter()">
-          <span>📊 Centro de Partidos</span>
-          <span style="font-size: 11px; opacity: 0.85;">Puntos Reales ➔</span>
-        </button>
-        <button class="btn-simulate-bar" style="margin: 0; padding: 10px 12px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35);" onclick="openShareModal()">
-          <span>📋 Copiar Texto</span>
-        </button>
-        <button class="btn-simulate-bar" style="grid-column: span 3; margin: 0; padding: 11px 14px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);" onclick="openStoryModal()">
-          <span>🎨 Generar Tarjeta de Historia (Story 9:16)</span>
-          <span style="font-size: 11px; opacity: 0.9;">Instagram / WhatsApp ➔</span>
-        </button>
-      </div>
-
-      <div class="bench-section">
-        <div class="section-title">
-          <span>Banca de Suplentes (4)</span>
-          <span style="color: var(--gold)">Regla del Revulsivo</span>
-        </div>
-        <div class="bench-grid" id="benchGrid"></div>
-
-        <div class="dt-card clickable-dt">
-          <div class="dt-left" onclick="showHolographicDtCard()" title="Ver ficha táctica holográfica del DT">
-            <div class="dt-icon">👔</div>
-            <div class="dt-info">
-              <h4 id="selectedCoachName">Guillermo Almada</h4>
-              <p id="selectedCoachMeta">Club América · Director Técnico</p>
+        <!-- Comodines de Temporada (Chips Oficiales PAMBOL) -->
+        <div class="chips-section" style="margin: 0;">
+          <div class="chips-header">
+            <span class="chips-title">🚀 Comodines de Temporada</span>
+            <span style="font-size: 10px; color: var(--text-muted);">1 uso por torneo</span>
+          </div>
+          <div class="chips-grid">
+            <div class="chip-btn" id="chipTripleCap" onclick="toggleSeasonChip('TRIPLE_CAP')">
+              <span class="chip-icon">👑</span>
+              <span class="chip-name">Triple Capitán</span>
+              <span class="chip-status" id="chipStatusTC">Disponible</span>
+            </div>
+            <div class="chip-btn" id="chipFreeHit" onclick="toggleSeasonChip('FREE_HIT')">
+              <span class="chip-icon">🔄</span>
+              <span class="chip-name">Fecha Libre</span>
+              <span class="chip-status" id="chipStatusFH">Disponible</span>
+            </div>
+            <div class="chip-btn" id="chipBenchBoost" onclick="toggleSeasonChip('BENCH_BOOST')">
+              <span class="chip-icon">🛡️</span>
+              <span class="chip-name">Banca Blindada</span>
+              <span class="chip-status" id="chipStatusBB">Disponible</span>
             </div>
           </div>
-          <div style="display:flex; gap:6px; align-items:center;">
-            <button type="button" class="icon-btn-header" style="padding:4px 8px; font-size:11px; height:auto; border-radius:10px; border-color:rgba(52, 211, 153, 0.5); background:rgba(6, 78, 59, 0.4); color:#86efac;" onclick="event.stopPropagation(); showHolographicDtCard()" title="Ver Ficha Holográfica">📋 Ficha</button>
-            <div class="dt-badge" onclick="openCoachModal()">CAMBIAR</div>
+        </div>
+
+        <!-- Límite de Alineación y Veda -->
+        <div class="deadline-countdown-bar" id="deadlineToaster" style="margin: 0;">
+          <div class="countdown-left">
+            <span class="countdown-icon">⏰</span>
+            <div>
+              <div class="countdown-text-title">Límite de Alineación (Veda)</div>
+              <div class="countdown-text-sub" id="liveCountdownDisplay">Calculando tiempo...</div>
+            </div>
           </div>
+          <button class="btn-notify-toggle" onclick="requestGameNotification()">
+            <span>🔔 Avisarme</span>
+          </button>
+        </div>
+
+        <!-- Selector Histórico de Fechas de Mi Once -->
+        <div class="once-gw-selector" style="margin: 0; background: #131b2e; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 10px;">
+          <span style="font-size: 10px; font-weight: 800; color: var(--gold); text-transform: uppercase; margin-right: 4px;">Fecha Once:</span>
+          <button class="once-gw-chip active" id="chipOnceJ11" onclick="switchOnceGameweek('11')">J11 (Actual)</button>
+          <button class="once-gw-chip" id="chipOnceJ10" onclick="switchOnceGameweek('10')">J10 (64 Pts)</button>
+          <button class="once-gw-chip" id="chipOnceJ9" onclick="switchOnceGameweek('9')">J9 (58 Pts)</button>
+          <button class="once-gw-chip" id="chipOnceJ8" onclick="switchOnceGameweek('8')">J8 (72 Pts)</button>
         </div>
       </div>
 
-      <!-- Barra de Validación y Guardado (Opción A) -->
-      <div class="team-validation-bar">
-        <div class="validation-stats">
-          <div class="val-item" id="valStarters">Titulares: <strong>0/11</strong></div>
-          <div class="val-item" id="valBench">Banca: <strong>0/4</strong></div>
-          <div class="val-item" id="valCaptain">Capitán: <strong>Sin Asignar</strong></div>
+      <!-- ==========================================
+           VISTA 3: RADAR & HERRAMIENTAS (ANALYTICS, RETOS, HISTORIAS)
+           ========================================== -->
+      <div id="canchitaViewTools" style="display: none; padding: 12px; flex-direction: column; gap: 12px;">
+        <!-- Banner Hero Oficial de Jornada 11 -->
+        <div class="gameweek-hero-card" style="margin: 0;">
+          <div class="hero-bg-lights"></div>
+          <div class="hero-content">
+            <div class="hero-top-badge">
+              <span class="pulse-live-dot"></span>
+              <span>JORNADA 11 · APERTURA 2026</span>
+            </div>
+            <h2 class="hero-title" style="font-size: 17px;">Arma tu Once Ideal de la Liga MX</h2>
+            <div class="hero-sub">Presupuesto oficial de 100 Varos · 11 Titulares · 4 Suplentes · 1 DT</div>
+            <div class="hero-stats-row">
+              <div class="hero-stat-item">
+                <span class="hero-stat-label">Cierre de Cambios</span>
+                <span class="hero-stat-val">Vie 9 Oct · 19:00</span>
+              </div>
+              <div class="hero-stat-sep"></div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-label">Partido Inaugural</span>
+                <span class="hero-stat-val">Puebla vs León</span>
+              </div>
+              <div class="hero-stat-sep"></div>
+              <div class="hero-stat-item">
+                <span class="hero-stat-label">Clasificación</span>
+                <span class="hero-stat-val" style="color: var(--accent-green);">1-8 Liguilla</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <button class="btn-save-team" onclick="saveTeamValidation()">
-          <span>💾 Guardar Mi Once (Jornada 11)</span>
-        </button>
+
+        <!-- Accesos Directos a Catálogo por Posición -->
+        <div class="pos-quick-bar" style="margin: 0;">
+          <button class="pos-quick-chip" onclick="openPositionCatalog('GK')">
+            <span class="pos-quick-icon">🧤</span>
+            <span class="pos-quick-name">Porteros</span>
+          </button>
+          <button class="pos-quick-chip" onclick="openPositionCatalog('DEF')">
+            <span class="pos-quick-icon">🛡️</span>
+            <span class="pos-quick-name">Defensas</span>
+          </button>
+          <button class="pos-quick-chip" onclick="openPositionCatalog('MID')">
+            <span class="pos-quick-icon">⚡</span>
+            <span class="pos-quick-name">Volantes</span>
+          </button>
+          <button class="pos-quick-chip active-fwd" onclick="openPositionCatalog('FWD')">
+            <span class="pos-quick-icon">🎯</span>
+            <span class="pos-quick-name">Delanteros</span>
+          </button>
+        </div>
+
+        <!-- Radar Fantasy y Proyecciones -->
+        <div class="data-panel" id="lineupAnalytics" style="margin: 0;">
+          <div class="data-panel-title">Radar fantasy · Jornada 11</div>
+          <div class="data-panel-sub">Proyección PAMBOL combinando forma, tendencia, posición, disponibilidad y rival.</div>
+          <div class="fantasy-strip" id="lineupFantasyStrip"></div>
+          <div class="data-note">Los estados de alineación son predicciones basadas en la última fecha oficial.</div>
+        </div>
+
+        <!-- Herramientas Interactivas -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <button class="btn-simulate-bar" style="margin: 0; padding: 12px; background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);" onclick="openChallengeModal()">
+            <span>⚔️ Reto 1 vs 1 Amigos</span>
+          </button>
+          <button class="btn-simulate-bar" style="margin: 0; padding: 12px; background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);" onclick="openOfficialScoreCenter()">
+            <span>📊 Puntos Reales (J11)</span>
+          </button>
+          <button class="btn-simulate-bar" style="margin: 0; padding: 12px; background: linear-gradient(135deg, #10b981 0%, #059669 100%);" onclick="openShareModal()">
+            <span>📋 Copiar a WhatsApp</span>
+          </button>
+          <button class="btn-simulate-bar" style="margin: 0; padding: 12px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);" onclick="openStoryModal()">
+            <span>🎨 Story 9:16 Instagram</span>
+          </button>
+        </div>
       </div>
     </main>
-
     <!-- TAB 2: MERCADO -->
     <main class="tab-content" id="tab-mercado">
       <div class="market-view">
+        <!-- Conmutador de Pestaña Mercado: Catálogo vs Bolsa de Valores -->
+        <div class="market-tab-switcher">
+          <button type="button" class="market-tab-btn active" id="btnMarketCatalog" onclick="switchMarketSubTab('catalog')">
+            <span>📋 Catálogo de Fichajes</span>
+          </button>
+          <button type="button" class="market-tab-btn" id="btnMarketStocks" onclick="switchMarketSubTab('stocks')">
+            <span>📈 Bolsa de Valores Pambolera</span>
+          </button>
+        </div>
+
+        <div id="marketCatalogView">
         <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-          <input type="text" class="search-bar" id="playerSearch" style="margin-bottom: 0;" placeholder="🔍 Buscar futbolista en Liga MX..." oninput="filterMarket()">
+          <input type="text" class="search-bar" id="playerSearch" style="margin-bottom: 0;" placeholder="🔍 Buscar futbolista por nombre..." oninput="filterMarket()">
           <button class="btn-liga-action primary" onclick="openCompareModal()" style="margin: 0; padding: 0 14px; white-space: nowrap;">
             <span>⚖️ Cara a Cara</span>
           </button>
         </div>
-        
-        
-        <select class="club-select" id="clubFilter" onchange="filterMarket()">
+
+        <!-- Chips de Clubes de Acceso Inmediato (Opción 4) -->
+        <div class="club-chips-carousel" id="clubChipsCarousel">
+          <button type="button" class="club-chip-btn active" data-club="ALL" onclick="selectClubChip('ALL')">Todos (18)</button>
+          <button type="button" class="club-chip-btn" data-club="Club América" onclick="selectClubChip('Club América')">🦅 AME</button>
+          <button type="button" class="club-chip-btn" data-club="CD Guadalajara" onclick="selectClubChip('CD Guadalajara')">🐐 CHI</button>
+          <button type="button" class="club-chip-btn" data-club="Cruz Azul" onclick="selectClubChip('Cruz Azul')">🚂 CAZ</button>
+          <button type="button" class="club-chip-btn" data-club="Tigres UANL" onclick="selectClubChip('Tigres UANL')">🐯 TIG</button>
+          <button type="button" class="club-chip-btn" data-club="CF Monterrey" onclick="selectClubChip('CF Monterrey')">🤠 MTY</button>
+          <button type="button" class="club-chip-btn" data-club="Deportivo Toluca" onclick="selectClubChip('Deportivo Toluca')">👹 TOL</button>
+          <button type="button" class="club-chip-btn" data-club="Pumas UNAM" onclick="selectClubChip('Pumas UNAM')">🐾 PUM</button>
+          <button type="button" class="club-chip-btn" data-club="CF Pachuca" onclick="selectClubChip('CF Pachuca')">🐹 PAC</button>
+          <button type="button" class="club-chip-btn" data-club="Club Santos Laguna" onclick="selectClubChip('Club Santos Laguna')">⚔️ SAN</button>
+          <button type="button" class="club-chip-btn" data-club="Club León" onclick="selectClubChip('Club León')">🦁 LEO</button>
+          <button type="button" class="club-chip-btn" data-club="Atlas FC" onclick="selectClubChip('Atlas FC')">🦊 ATS</button>
+          <button type="button" class="club-chip-btn" data-club="Club Necaxa" onclick="selectClubChip('Club Necaxa')">⚡ NEC</button>
+          <button type="button" class="club-chip-btn" data-club="Atlético de San Luis" onclick="selectClubChip('Atlético de San Luis')">🛡️ ADSL</button>
+          <button type="button" class="club-chip-btn" data-club="Club Tijuana" onclick="selectClubChip('Club Tijuana')">🐕 TIJ</button>
+          <button type="button" class="club-chip-btn" data-club="FC Juárez" onclick="selectClubChip('FC Juárez')">🐎 JUA</button>
+          <button type="button" class="club-chip-btn" data-club="Club Puebla" onclick="selectClubChip('Club Puebla')">🎽 PUE</button>
+          <button type="button" class="club-chip-btn" data-club="Querétaro FC" onclick="selectClubChip('Querétaro FC')">🐓 QRO</button>
+          <button type="button" class="club-chip-btn" data-club="Atlante FC" onclick="selectClubChip('Atlante FC')">🐎 ATL</button>
+        </div>
+
+        <select class="club-select" id="clubFilter" onchange="filterMarket()" style="display: none;">
           <option value="ALL">Todos los Clubes (18)</option>
         </select>
+
+        <!-- Barra de Ordenación Rápida -->
+        <div class="market-sort-row">
+          <span style="font-size: 10px; font-weight: 800; color: #94a3b8; margin-right: 2px;">ORDENAR:</span>
+          <button type="button" class="sort-chip active" id="sortPriceDesc" onclick="setMarketSort('price_desc')">💰 Mayor Precio</button>
+          <button type="button" class="sort-chip" id="sortPriceAsc" onclick="setMarketSort('price_asc')">🪙 Menor Precio</button>
+          <button type="button" class="sort-chip" id="sortFormDesc" onclick="setMarketSort('form_desc')">🔥 Mejor Forma</button>
+        </div>
 
         
         <!-- Contador Oficial de Transferencias y Penalizaciones -->
@@ -4735,8 +5399,6 @@
           </table>
         </div>
       </div>
-    
-        </div>
 
         <!-- Vista 2: Cuadro de Liguilla Directa Apertura 2026 -->
         <div id="viewTableLiguilla" style="display: none;">
@@ -4763,9 +5425,14 @@
         <!-- Banner de Perfil del Usuario -->
         <div class="user-profile-banner">
           <div class="user-profile-left">
-            <div class="user-avatar">👑</div>
+            <div class="user-avatar" id="userCustomBadgeAvatar" onclick="openBadgeBuilderModal()" title="Toca para editar tu escudo de barrio" style="cursor: pointer;">
+              <span id="userCustomBadgeIcon">👑</span>
+            </div>
             <div class="user-profile-info">
-              <h3>Mi Once Pambolero</h3>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <h3 id="userCustomTeamTitle">Mi Once Pambolero</h3>
+                <button type="button" class="edit-badge-btn" onclick="openBadgeBuilderModal()" title="Personalizar escudo y apodo de tu equipo">🎨 Escudo</button>
+              </div>
               <p>DT: <span id="userProfileCoach">Guillermo Almada</span></p>
               <div style="margin-top: 4px; display: flex; gap: 4px;">
                 <span class="fantasy-badge fb-green">J11 Lista</span>
@@ -5033,8 +5700,92 @@
     function switchTab(tabId, el) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-      document.getElementById('tab-' + tabId).classList.add('active');
-      el.classList.add('active');
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
+      if (el) el.classList.add('active');
+
+      // Control dinámico de cabecera: ocultar presupuesto en Ligas, Quiniela y Tabla
+      const budgetPill = document.getElementById('budgetPill');
+      const modPill = document.getElementById('modPill');
+      const gameweekBar = document.querySelector('.gameweek-bar');
+
+      if (tabId === 'canchita' || tabId === 'mercado') {
+        // En Mi Once y Mercado mostramos presupuesto, modificadores y jornada
+        if (budgetPill) budgetPill.style.display = 'block';
+        if (modPill) modPill.style.display = 'flex';
+        if (gameweekBar) gameweekBar.style.display = 'flex';
+      } else {
+        // En Ligas, Quiniela y Tabla NO se gestiona presupuesto del Once
+        if (budgetPill) budgetPill.style.display = 'none';
+        if (modPill) modPill.style.display = 'none';
+        if (tabId === 'ligas' || tabId === 'tabla') {
+          if (gameweekBar) gameweekBar.style.display = 'none';
+        } else {
+          if (gameweekBar) gameweekBar.style.display = 'flex';
+        }
+      }
+    }
+
+
+    // ==========================================
+    // SUB-PESTAÑAS DE MI ONCE (CANCHA PURA VS TÁCTICA)
+    // ==========================================
+    function switchCanchitaSubTab(viewName) {
+      const views = ['cancha', 'tactics', 'tools'];
+      views.forEach(v => {
+        const el = document.getElementById(v === 'cancha' ? 'canchitaViewPitch' : (v === 'tactics' ? 'canchitaViewTactics' : 'canchitaViewTools'));
+        const btn = document.getElementById(v === 'cancha' ? 'btnSubTabCancha' : (v === 'tactics' ? 'btnSubTabTactics' : 'btnSubTabTools'));
+        if (el) el.style.display = (v === viewName) ? (v === 'cancha' ? 'block' : 'flex') : 'none';
+        if (btn) btn.classList.toggle('active', v === viewName);
+      });
+
+      // Actualizar cabecera mínima si estamos en la cancha
+      if (viewName === 'cancha') {
+        updatePitchMinimalHeader();
+      }
+    }
+
+    function updatePitchMinimalHeader() {
+      const formEl = document.getElementById('canchaHeaderFormation');
+      const flexEl = document.getElementById('canchaHeaderFlex');
+      const capEl = document.getElementById('canchaHeaderCaptain');
+      const costEl = document.getElementById('canchaHeaderCost');
+
+      const flexCount = { DEF: (lineup.DEF || []).length, MID: (lineup.MID || []).length, FWD: (lineup.FWD || []).length };
+      const flexPos = flexCount.DEF > 3 ? 'DEF' : (flexCount.MID > 3 ? 'MED' : 'DEL');
+
+      if (formEl) formEl.textContent = `${selectedFormation} ▾`;
+      if (flexEl) flexEl.textContent = flexPos;
+
+      const cap = getPlayer(captainId);
+      if (capEl && cap) capEl.textContent = `👑 ${playerShortName(cap)} (C x2)`;
+
+      const totalCost = calculateTotalSquadCost();
+      if (costEl) costEl.textContent = `${totalCost.toFixed(1)} V`;
+    }
+
+    // ==========================================
+    // CHIPS DE FILTRO DE CLUBES Y ORDEN EN MERCADO
+    // ==========================================
+    let currentMarketSort = 'price_desc';
+
+    function selectClubChip(clubName) {
+      document.querySelectorAll('.club-chip-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.club === clubName);
+      });
+      const select = document.getElementById('clubFilter');
+      if (select) {
+        select.value = clubName;
+      }
+      renderMarket();
+    }
+
+    function setMarketSort(sortType) {
+      currentMarketSort = sortType;
+      document.querySelectorAll('.sort-chip').forEach(c => c.classList.remove('active'));
+      const activeBtn = document.getElementById(sortType === 'price_desc' ? 'sortPriceDesc' : (sortType === 'price_asc' ? 'sortPriceAsc' : 'sortFormDesc'));
+      if (activeBtn) activeBtn.classList.add('active');
+      renderMarket();
     }
 
     function populateClubFilter() {
@@ -5407,6 +6158,9 @@
     const STORAGE_KEY = 'pambol_state_v6';
 
     function loadSavedState() {
+      loadUserProfile();
+      applyUserClubStadiumLighting();
+      updateUserClubMatchAlert();
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
@@ -5526,6 +6280,7 @@
       renderSelectedCoach();
       renderLineupAnalytics();
       updateBudget();
+      updatePitchMinimalHeader();
     }
 
     function renderSlot(pos, id, idx) {
@@ -7150,123 +7905,301 @@
       document.getElementById('authModalOverlay').classList.remove('open');
     }
 
-    function renderAuthModal() {
+        function renderAuthModal() {
       const container = document.getElementById('authModalContent');
-      if (currentUser.isLoggedIn) {
-        container.innerHTML = `
-          <div class="cloud-sync-status">
-            <span>☁️ Sincronizado en la nube (Supabase)</span>
-            <span>En línea</span>
-          </div>
+      const titleEl = document.getElementById('authModalTitle');
 
-          <div style="background: #151d30; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px; margin-bottom: 12px;">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-              <div class="user-avatar">👑</div>
-              <div>
-                <h4 style="font-size: 15px; font-weight: 900; color: #fff;">${escapeHtml(currentUser.name)}</h4>
-                <p style="font-size: 11px; color: var(--text-muted);">@${escapeHtml(currentUser.username)} · ${currentUser.email}</p>
-                <div style="margin-top: 4px; font-size: 11px; color: var(--gold); font-weight: 700;">Club Favorito: ${currentUser.favoriteClub}</div>
+      if (currentUser.isLoggedIn) {
+        if (titleEl) titleEl.textContent = '👤 Mi Perfil de DT · Aficionado Oficial';
+        const clubData = LIGA_MX_AFICIONES.find(c => c.name === currentUser.favoriteClub) || LIGA_MX_AFICIONES[0];
+
+        container.innerHTML = `
+          <!-- Tarjeta de Aficionado Oficial -->
+          <div class="fan-profile-card">
+            <div class="fan-badge-strip">
+              <div class="fan-club-badge-icon">${clubData.icon}</div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 10px; font-weight: 800; color: var(--gold); text-transform: uppercase;">AFICIONADO OFICIAL DE:</div>
+                <h3 style="font-size: 16px; font-weight: 900; color: #ffffff; margin: 1px 0;">${escapeHtml(clubData.name)}</h3>
+                <div style="font-size: 11px; color: #38bdf8; font-weight: 700;">«${escapeHtml(clubData.nickname)}»</div>
               </div>
             </div>
-            
+
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 10px 12px; margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 12.5px; font-weight: 800; color: #ffffff;">${escapeHtml(currentUser.name)}</span>
+                <span style="font-size: 10px; color: var(--gold); font-weight: 700;">@${escapeHtml(currentUser.username)}</span>
+              </div>
+              <div style="font-size: 10.5px; color: #94a3b8;">${escapeHtml(currentUser.email || 'dt@pambol.mx')}</div>
+            </div>
+
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
-              <div>Once Guardado: <strong style="color: var(--accent-green);">Jornada 11</strong></div>
-              <div>Pronósticos Quiniela: <strong style="color: var(--gold);">9/9 Listos</strong></div>
-              <div>Ligas Privadas: <strong style="color: #38bdf8;">${userLeagues.length} Activas</strong></div>
-              <div>Puntos Totales: <strong style="color: #fff;">584 Pts</strong></div>
+              <div>Once Titular: <strong style="color: var(--accent-green);">11/11 Activo</strong></div>
+              <div>Quiniela: <strong style="color: var(--gold);">9/9 Pronósticos</strong></div>
+              <div>Peña de Afición: <strong style="color: #38bdf8;">${escapeHtml(clubData.pena)} (✔)</strong></div>
+              <div>Puntos Totales: <strong style="color: #fff;">584 Pts (#142)</strong></div>
             </div>
           </div>
 
+          <!-- Botón para cambiar de club favorito -->
           <div style="background: #090d16; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px; margin-bottom: 12px;">
-            <div style="font-size: 11px; font-weight: 800; color: var(--gold); margin-bottom: 6px;">CONEXIÓN DIRECTA A SUPABASE (POSTGRESQL):</div>
-            <p style="font-size: 10.5px; color: var(--text-muted); line-height: 1.4; margin-bottom: 8px;">
-              Tu base de datos en la nube está activa. Se guardan tus pronósticos, alineación y miembros de liga en tiempo real.
+            <div style="font-size: 11px; font-weight: 800; color: var(--gold); margin-bottom: 4px;">¿QUIERES CAMBIAR TU EQUIPO DEL CORAZÓN?</div>
+            <p style="font-size: 10.5px; color: #94a3b8; line-height: 1.35; margin: 0 0 8px;">
+              Puedes reasignar tu club de la Liga MX para defender otros colores y unirte a su respectiva peña.
             </p>
-            <div style="font-size: 10px; font-family: monospace; color: #94a3b8; background: #030712; padding: 8px; border-radius: 6px; word-break: break-all;">
-              ENDPOINT: https://pambol-mx.supabase.co (Modo Autónomo Activo)
-            </div>
+            <button type="button" class="btn-liga-action" style="width: 100%; justify-content: center; padding: 8px;" onclick="openClubSelectorOnly()">
+              <span>🔄 Cambiar de Club Favorito</span>
+            </button>
           </div>
 
-          <button class="btn-save-quiniela" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #fca5a5;" onclick="logoutUser()">
-            <span>Cerrar Sesión</span>
+          <button type="button" class="btn-save-quiniela" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #fca5a5; margin: 0; padding: 11px;" onclick="logoutUser()">
+            <span>🚪 Cerrar Sesión</span>
           </button>
         `;
       } else {
+        if (titleEl) titleEl.textContent = '🇲🇽 Registro & Acceso Oficial PAMBOL';
+
         container.innerHTML = `
-          <button class="btn-google-login" onclick="loginWithGoogle()">
-            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
-            <span>Continuar con Google</span>
-          </button>
-
-          <div style="text-align: center; color: var(--text-muted); font-size: 11px; margin-bottom: 12px;">o con correo electrónico</div>
-
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <div>
-              <label style="font-size: 10.5px; color: var(--text-muted); font-weight: 700;">Nombre de Usuario</label>
-              <input type="text" id="authUsernameInput" class="picker-search" placeholder="Ej: PamboleroDelBajio" style="margin-top: 4px;">
-            </div>
-            <div>
-              <label style="font-size: 10.5px; color: var(--text-muted); font-weight: 700;">Correo Electrónico</label>
-              <input type="email" id="authEmailInput" class="picker-search" placeholder="correo@ejemplo.com" style="margin-top: 4px;">
-            </div>
-            <div>
-              <label style="font-size: 10.5px; color: var(--text-muted); font-weight: 700;">Club Favorito de Liga MX</label>
-              <select id="authClubInput" class="club-select" style="margin-top: 4px;">
-                ${DB.teams.map(t => `<option value="${escapeHtml(t.name)}">${escapeHtml(t.name)}</option>`).join('')}
-              </select>
-            </div>
-            <button class="btn-save-quiniela" onclick="loginWithEmail()">
-              <span>Entrar / Crear Cuenta</span>
+          <!-- Conmutador de Pestaña Registro / Login -->
+          <div class="auth-tabs-row">
+            <button type="button" class="auth-tab-btn ${activeAuthTab === 'register' ? 'active' : ''}" id="authTabBtnRegister" onclick="switchAuthTab('register')">
+              <span>📝 Crear Cuenta (Nuevo DT)</span>
+            </button>
+            <button type="button" class="auth-tab-btn ${activeAuthTab === 'login' ? 'active' : ''}" id="authTabBtnLogin" onclick="switchAuthTab('login')">
+              <span>🔑 Iniciar Sesión</span>
             </button>
           </div>
+
+          ${activeAuthTab === 'register' ? getRegisterFormHtml() : getLoginFormHtml()}
         `;
       }
     }
 
-    function loginWithGoogle() {
-      currentUser.isLoggedIn = true;
-      currentUser.name = 'Pambolero Google';
-      currentUser.username = 'Google_User';
-      currentUser.email = 'usuario@gmail.com';
-      updateUserAuthPill();
+    function switchAuthTab(tab) {
+      activeAuthTab = tab;
       renderAuthModal();
-      saveState();
-      alert("✅ ¡Sesión iniciada con éxito! Tu equipo y pronósticos están sincronizados en la nube.");
     }
 
-    function loginWithEmail() {
-      const u = document.getElementById('authUsernameInput')?.value.trim() || 'Pambolero';
-      const e = document.getElementById('authEmailInput')?.value.trim() || 'usuario@pambol.mx';
-      const c = document.getElementById('authClubInput')?.value || 'Club América';
-      currentUser.isLoggedIn = true;
-      currentUser.name = u;
-      currentUser.username = u.toLowerCase().replace(/\s+/g, '_');
-      currentUser.email = e;
-      currentUser.favoriteClub = c;
-      updateUserAuthPill();
-      renderAuthModal();
-      saveState();
-      alert(`🎉 ¡Bienvenido ${u}! Tu perfil de ${c} ha sido vinculado.`);
+    function getRegisterFormHtml() {
+      const clubsGrid = LIGA_MX_AFICIONES.map(c => `
+        <div class="club-choose-card ${c.name === selectedRegisterClub ? 'selected' : ''}" onclick="selectRegisterClub('${escapeHtml(c.name)}')">
+          <div class="club-choose-icon">${c.icon}</div>
+          <div class="club-choose-info">
+            <div class="club-choose-name">${escapeHtml(c.name)}</div>
+            <div class="club-choose-nick">${escapeHtml(c.nickname)}</div>
+          </div>
+          <span class="club-check-icon">✔</span>
+        </div>
+      `).join('');
+
+      return `
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div>
+            <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Nombre de tu DT o Apodo:</label>
+            <input type="text" id="regNameInput" class="picker-search" placeholder="Ej: MatuteDT, Charly_Pambolero" style="margin-top: 4px;">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div>
+              <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Correo Electrónico:</label>
+              <input type="email" id="regEmailInput" class="picker-search" placeholder="dt@ejemplo.com" style="margin-top: 4px;">
+            </div>
+            <div>
+              <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Contraseña:</label>
+              <input type="password" id="regPassInput" class="picker-search" placeholder="Mínimo 6 caracteres" style="margin-top: 4px;">
+            </div>
+          </div>
+
+          <!-- Selección Obligatoria de Club Mexicano -->
+          <div class="club-select-header-box">
+            <div class="club-select-title">
+              <span>🇲🇽 ¿DE QUÉ EQUIPO DE LA LIGA MX ERES HINCHA?</span>
+            </div>
+            <div class="club-select-sub">
+              Toca tu club del corazón para asignarlo a tu perfil oficial, recibir su insignia y unirte a su afición:
+            </div>
+          </div>
+
+          <div class="club-selection-grid">
+            ${clubsGrid}
+          </div>
+
+          <button type="button" class="btn-save-quiniela" style="margin: 0; padding: 13px;" onclick="handleUserRegistration()">
+            <span>⚽ CREAR CUENTA Y ENTRAR AL PARTIDO</span>
+          </button>
+
+          <button type="button" class="btn-skip-guest" onclick="closeAuthModal()">
+            Explorar como invitado por ahora
+          </button>
+        </div>
+      `;
+    }
+
+    function getLoginFormHtml() {
+      return `
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <button type="button" class="btn-google-login" onclick="loginWithGoogle()">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+            <span>Continuar con Google</span>
+          </button>
+
+          <div style="text-align: center; color: var(--text-muted); font-size: 11px;">o ingresa con tu correo</div>
+
+          <div>
+            <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Correo o Nombre de Usuario:</label>
+            <input type="text" id="loginUserInput" class="picker-search" placeholder="dt@ejemplo.com o nombre de DT" style="margin-top: 4px;">
+          </div>
+
+          <div>
+            <label style="font-size: 11px; color: var(--text-muted); font-weight: 700;">Contraseña:</label>
+            <input type="password" id="loginPassInput" class="picker-search" placeholder="Tu contraseña" style="margin-top: 4px;">
+          </div>
+
+          <button type="button" class="btn-save-quiniela" style="margin-top: 6px; padding: 13px;" onclick="handleUserLogin()">
+            <span>🔑 ENTRAR A MI CUENTA</span>
+          </button>
+
+          <button type="button" class="btn-skip-guest" onclick="switchAuthTab('register')">
+            ¿No tienes cuenta? Regístrate aquí
+          </button>
+        </div>
+      `;
+    }
+
+    function selectRegisterClub(clubName) {
+      selectedRegisterClub = clubName;
+      playStadiumSound('click');
+      document.querySelectorAll('.club-choose-card').forEach(card => {
+        const isSel = card.querySelector('.club-choose-name')?.textContent === clubName;
+        card.classList.toggle('selected', isSel);
+      });
+    }
+
+    function handleUserRegistration() {
+      const nameInput = document.getElementById('regNameInput');
+      const emailInput = document.getElementById('regEmailInput');
+
+      const name = (nameInput && nameInput.value.trim()) ? nameInput.value.trim() : 'DT Pambolero';
+      const email = (emailInput && emailInput.value.trim()) ? emailInput.value.trim() : 'dt@pambol.mx';
+      const username = name.replace(/\s+/g, '_');
+
+      const clubData = LIGA_MX_AFICIONES.find(c => c.name === selectedRegisterClub) || LIGA_MX_AFICIONES[0];
+
+      currentUser = {
+        isLoggedIn: true,
+        name: name,
+        username: username,
+        email: email,
+        favoriteClub: clubData.name,
+        clubShort: clubData.short,
+        clubIcon: clubData.icon,
+        syncedWithCloud: true
+      };
+
+      // Unir automáticamente a la Peña de su club
+      userJoinedPenas.add(clubData.short);
+
+      saveUserProfile();
+      updateUserAuthDisplay();
+      closeAuthModal();
+
+      playStadiumSound('whistle');
+      setTimeout(() => playStadiumSound('goal'), 250);
+      triggerConfetti();
+
+      alert(`🎉 ¡Bienvenido a PAMBOL, DT ${name}!
+
+Te has registrado como aficionado oficial de ${clubData.name} (${clubData.icon} ${clubData.nickname}).
+¡Tu cuenta ya está lista para competir en la Liga MX!`);
+    }
+
+    function handleUserLogin() {
+      const userInput = document.getElementById('loginUserInput');
+      const u = (userInput && userInput.value.trim()) ? userInput.value.trim() : 'DT Pambolero';
+
+      const clubData = LIGA_MX_AFICIONES.find(c => c.name === selectedRegisterClub) || LIGA_MX_AFICIONES[0];
+
+      currentUser = {
+        isLoggedIn: true,
+        name: u,
+        username: u.replace(/\s+/g, '_'),
+        email: u.includes('@') ? u : `${u.toLowerCase()}@pambol.mx`,
+        favoriteClub: clubData.name,
+        clubShort: clubData.short,
+        clubIcon: clubData.icon,
+        syncedWithCloud: true
+      };
+
+      saveUserProfile();
+      updateUserAuthDisplay();
+      closeAuthModal();
+
+      playStadiumSound('whistle');
+      alert(`✅ ¡Bienvenido de vuelta, DT ${currentUser.name}!`);
+    }
+
+    function loginWithGoogle() {
+      const clubData = LIGA_MX_AFICIONES.find(c => c.name === selectedRegisterClub) || LIGA_MX_AFICIONES[0];
+      currentUser = {
+        isLoggedIn: true,
+        name: 'Pambolero Google',
+        username: 'Google_DT',
+        email: 'dt.google@gmail.com',
+        favoriteClub: clubData.name,
+        clubShort: clubData.short,
+        clubIcon: clubData.icon,
+        syncedWithCloud: true
+      };
+      saveUserProfile();
+      updateUserAuthDisplay();
+      closeAuthModal();
+      playStadiumSound('goal');
+      triggerConfetti();
+      alert(`🎉 ¡Sesión iniciada con Google como aficionado de ${clubData.name}!`);
+    }
+
+    function saveUserProfile() {
+      try {
+        localStorage.setItem('pambol_user_profile', JSON.stringify(currentUser));
+      } catch (e) {
+        console.warn('Error saving user profile:', e);
+      }
     }
 
     function logoutUser() {
       currentUser.isLoggedIn = false;
-      updateUserAuthPill();
-      renderAuthModal();
-      saveState();
+      currentUser.name = 'Nuevo Pambolero';
+      currentUser.username = 'DT_Pambolero';
+      currentUser.email = '';
+      saveUserProfile();
+      updateUserAuthDisplay();
+      closeAuthModal();
+      alert('Has cerrado sesión en PAMBOL.');
     }
 
-    function updateUserAuthPill() {
+    function openClubSelectorOnly() {
+      activeAuthTab = 'register';
+      currentUser.isLoggedIn = false;
+      renderAuthModal();
+    }
+
+    function updateUserAuthDisplay() {
       const icon = document.getElementById('userAuthIcon');
       const name = document.getElementById('userAuthName');
       if (icon && name) {
         if (currentUser.isLoggedIn) {
-          icon.innerText = '👑';
+          icon.innerText = currentUser.clubIcon || '👑';
           name.innerText = currentUser.username.slice(0, 10);
         } else {
           icon.innerText = '👤';
-          name.innerText = 'Entrar';
+          name.innerText = 'Entrar / Registro';
         }
+      }
+
+      // Actualizar tarjeta en la pestaña de Ligas
+      const userClubPill = document.getElementById('userCustomTeamTitle');
+      if (userClubPill && currentUser.isLoggedIn) {
+        userClubPill.textContent = `${currentUser.name} (${currentUser.clubIcon || ''})`;
       }
     }
 
@@ -7847,19 +8780,21 @@
     }
 
     function getJerseySvg(p, isCaptain = false, isEmpty = false, emptyPos = 'DEL') {
+      const bodyShape = "M24,7 Q32,14 40,7 L45,9 C49,11 55,14 58,18 L55,28 L46,23 C45,34 45,44 47,60 Q32,63 17,60 C19,44 19,34 18,23 L9,28 L6,18 C9,14 15,11 19,9 Z";
+
       if (isEmpty || !p) {
         return `
           <div class="pitch-jersey-wrap">
-            <svg class="pitch-jersey-svg empty" viewBox="0 0 48 50" xmlns="http://www.w3.org/2000/svg">
+            <svg class="pitch-jersey-svg empty" viewBox="0 0 64 66" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <filter id="emptyGlow_${emptyPos}" x="-20%" y="-20%" width="140%" height="140%">
                   <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#22c55e" flood-opacity="0.6"/>
                 </filter>
               </defs>
-              <path d="M15,6 L20,3 L28,3 L33,6 L44,14 L39,22 L34,18 L34,44 L14,44 L14,18 L9,22 L4,14 Z" 
-                    fill="rgba(15, 23, 42, 0.7)" stroke="rgba(34, 197, 94, 0.85)" stroke-width="2" stroke-dasharray="3,3" filter="url(#emptyGlow_${emptyPos})"/>
-              <path d="M20,3 Q24,9 28,3" fill="none" stroke="rgba(34, 197, 94, 0.85)" stroke-width="1.5"/>
-              <text x="24" y="27" font-family="-apple-system, sans-serif" font-size="20" font-weight="900" fill="#22c55e" text-anchor="middle" dominant-baseline="central">+</text>
+              <path d="${bodyShape}" 
+                    fill="rgba(15, 23, 42, 0.65)" stroke="rgba(34, 197, 94, 0.85)" stroke-width="2" stroke-dasharray="3,3" filter="url(#emptyGlow_${emptyPos})"/>
+              <path d="M23,7 Q32,15 41,7" fill="none" stroke="rgba(34, 197, 94, 0.85)" stroke-width="1.8"/>
+              <text x="32" y="38" font-family="-apple-system, sans-serif" font-size="24" font-weight="900" fill="#22c55e" text-anchor="middle" dominant-baseline="central">+</text>
             </svg>
           </div>
         `;
@@ -7869,99 +8804,162 @@
       const num = getPlayerSquadNumber(p);
 
       const styles = {
-        'AME': { base: '#fef08a', acc: '#1e3a8a', col: '#dc2626', num: '#1e3a8a', pat: 'ame' },
-        'CHI': { base: '#ef4444', acc: '#ffffff', col: '#1e3a8a', num: '#1e3a8a', pat: 'stripes_v' },
-        'CAZ': { base: '#2563eb', acc: '#1d4ed8', col: '#ffffff', num: '#ffffff', pat: 'solid' },
-        'TIG': { base: '#f59e0b', acc: '#1e3a8a', col: '#1e3a8a', num: '#1e3a8a', pat: 'band' },
-        'MTY': { base: '#1e3a8a', acc: '#ffffff', col: '#ffffff', num: '#ef4444', pat: 'stripes_v' },
-        'TOL': { base: '#dc2626', acc: '#b91c1c', col: '#ffffff', num: '#ffffff', pat: 'solid' },
-        'PUM': { base: '#0f172a', acc: '#fbbf24', col: '#fbbf24', num: '#fbbf24', pat: 'pumas' },
-        'PAC': { base: '#ffffff', acc: '#0284c7', col: '#0284c7', num: '#0284c7', pat: 'stripes_v' },
-        'SAN': { base: '#16a34a', acc: '#ffffff', col: '#ffffff', num: '#ffffff', pat: 'stripes_h' },
-        'LEO': { base: '#15803d', acc: '#facc15', col: '#facc15', num: '#ffffff', pat: 'solid' },
-        'ATS': { base: '#dc2626', acc: '#000000', col: '#ffffff', num: '#ffffff', pat: 'half' },
-        'NEC': { base: '#ffffff', acc: '#dc2626', col: '#dc2626', num: '#dc2626', pat: 'stripes_v' },
-        'ADSL': { base: '#b91c1c', acc: '#ffffff', col: '#1e3a8a', num: '#1e3a8a', pat: 'stripes_v' },
-        'TIJ': { base: '#991b1b', acc: '#000000', col: '#ffffff', num: '#ffffff', pat: 'solid' },
-        'JUA': { base: '#16a34a', acc: '#dc2626', col: '#dc2626', num: '#ffffff', pat: 'solid' },
-        'PUE': { base: '#ffffff', acc: '#2563eb', col: '#2563eb', num: '#2563eb', pat: 'sash' },
-        'QRO': { base: '#2563eb', acc: '#000000', col: '#ffffff', num: '#ffffff', pat: 'stripes_v' },
-        'MAZ': { base: '#7e22ce', acc: '#000000', col: '#ffffff', num: '#ffffff', pat: 'solid' }
+        'AME': { base: '#fef08a', acc: '#1e3a8a', col: '#dc2626', cuff: '#1e3a8a', num: '#1e3a8a', pat: 'ame' },
+        'CHI': { base: '#ef4444', acc: '#ffffff', col: '#1e3a8a', cuff: '#1e3a8a', num: '#1e3a8a', pat: 'stripes_v' },
+        'CAZ': { base: '#1d4ed8', acc: '#ffffff', col: '#ffffff', cuff: '#ffffff', num: '#ffffff', pat: 'caz' },
+        'TIG': { base: '#f59e0b', acc: '#1e3a8a', col: '#1e3a8a', cuff: '#1e3a8a', num: '#1e3a8a', pat: 'band' },
+        'MTY': { base: '#1e3a8a', acc: '#ffffff', col: '#ffffff', cuff: '#ffffff', num: '#ef4444', pat: 'stripes_v' },
+        'TOL': { base: '#dc2626', acc: '#b91c1c', col: '#ffffff', cuff: '#ffffff', num: '#ffffff', pat: 'solid' },
+        'PUM': { base: '#0f172a', acc: '#fbbf24', col: '#fbbf24', cuff: '#fbbf24', num: '#fbbf24', pat: 'pumas' },
+        'PAC': { base: '#ffffff', acc: '#0284c7', col: '#0284c7', cuff: '#0284c7', num: '#0284c7', pat: 'stripes_v' },
+        'SAN': { base: '#16a34a', acc: '#ffffff', col: '#ffffff', cuff: '#ffffff', num: '#ffffff', pat: 'stripes_h' },
+        'LEO': { base: '#15803d', acc: '#facc15', col: '#facc15', cuff: '#facc15', num: '#ffffff', pat: 'solid' },
+        'ATS': { base: '#dc2626', acc: '#000000', col: '#ffffff', cuff: '#000000', num: '#ffffff', pat: 'half' },
+        'NEC': { base: '#ffffff', acc: '#dc2626', col: '#dc2626', cuff: '#dc2626', num: '#dc2626', pat: 'stripes_v' },
+        'ADSL': { base: '#b91c1c', acc: '#ffffff', col: '#1e3a8a', cuff: '#1e3a8a', num: '#1e3a8a', pat: 'stripes_v' },
+        'TIJ': { base: '#991b1b', acc: '#000000', col: '#ffffff', cuff: '#000000', num: '#ffffff', pat: 'solid' },
+        'JUA': { base: '#16a34a', acc: '#dc2626', col: '#dc2626', cuff: '#dc2626', num: '#ffffff', pat: 'chevron' },
+        'PUE': { base: '#ffffff', acc: '#2563eb', col: '#2563eb', cuff: '#2563eb', num: '#2563eb', pat: 'sash' },
+        'QRO': { base: '#2563eb', acc: '#000000', col: '#ffffff', cuff: '#000000', num: '#ffffff', pat: 'stripes_v' },
+        'MAZ': { base: '#7e22ce', acc: '#000000', col: '#ffffff', cuff: '#000000', num: '#ffffff', pat: 'solid' }
       };
 
-      const s = styles[teamShort] || { base: '#1e293b', acc: '#38bdf8', col: '#ffffff', num: '#ffffff', pat: 'solid' };
+      const s = styles[teamShort] || { base: '#1e293b', acc: '#38bdf8', col: '#ffffff', cuff: '#ffffff', num: '#ffffff', pat: 'solid' };
 
-      // Si es portero, usar buzo de arquero especial (cian o negro)
       let baseColor = s.base;
-      let numColor = s.num;
+      let accColor = s.acc;
       let collarColor = s.col;
+      let cuffColor = s.cuff;
+      let numColor = s.num;
       let patSvg = '';
 
       if (p.pos === 'GK') {
         baseColor = '#0284c7';
-        numColor = '#ffffff';
+        accColor = '#38bdf8';
         collarColor = '#ffffff';
-        patSvg = '<rect x="14" y="6" width="20" height="38" fill="#0369a1"/>';
+        cuffColor = '#38bdf8';
+        numColor = '#ffffff';
+        patSvg = `
+          <path d="M18,23 L46,23 L47,60 Q32,63 17,60 Z" fill="#0369a1"/>
+          <line x1="18" y1="30" x2="46" y2="30" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <line x1="18" y1="37" x2="46" y2="37" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <line x1="17" y1="44" x2="47" y2="44" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,2"/>
+        `;
       } else {
         if (s.pat === 'stripes_v') {
-          patSvg = `<rect x="18" y="6" width="4" height="38" fill="${s.acc}"/><rect x="26" y="6" width="4" height="38" fill="${s.acc}"/>`;
+          patSvg = `
+            <rect x="22" y="7" width="5" height="55" fill="${accColor}"/>
+            <rect x="37" y="7" width="5" height="55" fill="${accColor}"/>
+            <rect x="29.5" y="14" width="5" height="48" fill="${accColor}"/>
+          `;
         } else if (s.pat === 'stripes_h') {
-          patSvg = `<rect x="14" y="14" width="20" height="6" fill="${s.acc}"/><rect x="14" y="26" width="20" height="6" fill="${s.acc}"/><rect x="14" y="38" width="20" height="6" fill="${s.acc}"/>`;
-        } else if (s.pat === 'sash') {
-          patSvg = `<polygon points="14,12 22,6 34,36 26,44" fill="${s.acc}"/>`;
-        } else if (s.pat === 'half') {
-          patSvg = `<rect x="24" y="6" width="10" height="38" fill="${s.acc}"/><polygon points="28,3 33,6 44,14 39,22 34,18 34,6 28,3" fill="${s.acc}"/>`;
+          patSvg = `
+            <rect x="16" y="17" width="32" height="6.5" fill="${accColor}"/>
+            <rect x="16" y="30" width="32" height="6.5" fill="${accColor}"/>
+            <rect x="16" y="43" width="32" height="6.5" fill="${accColor}"/>
+          `;
         } else if (s.pat === 'band') {
-          patSvg = `<rect x="14" y="18" width="20" height="10" fill="${s.acc}"/>`;
+          patSvg = `
+            <rect x="16" y="24" width="32" height="13" fill="${accColor}"/>
+            <rect x="16" y="22" width="32" height="1.5" fill="#ffffff" opacity="0.6"/>
+            <rect x="16" y="37.5" width="32" height="1.5" fill="#ffffff" opacity="0.6"/>
+          `;
         } else if (s.pat === 'ame') {
-          patSvg = `<polygon points="14,6 20,3 24,13 28,3 34,6 34,18 24,26 14,18" fill="${s.acc}"/><polygon points="14,18 24,26 34,18 24,28" fill="${collarColor}"/>`;
+          patSvg = `
+            <polygon points="17,7 24,7 32,17 40,7 47,7 46,24 32,35 18,24" fill="${accColor}"/>
+            <polygon points="18,24 32,35 46,24 46,27 32,38 18,27" fill="${collarColor}"/>
+          `;
+        } else if (s.pat === 'caz') {
+          patSvg = `
+            <rect x="18" y="22" width="28" height="3" fill="#ffffff"/>
+            <rect x="18" y="25" width="28" height="2" fill="#dc2626"/>
+          `;
         } else if (s.pat === 'pumas') {
-          patSvg = `<circle cx="24" cy="22" r="6.5" fill="${s.acc}"/><polygon points="20,17 22,23 26,23 28,17 24,19.5" fill="${baseColor}"/>`;
+          patSvg = `
+            <polygon points="32,20 23,28 26,38 32,34 38,38 41,28" fill="${accColor}" stroke="#ffffff" stroke-width="0.5"/>
+            <polygon points="26,29 29,34 35,34 38,29 36,36 32,33 28,36" fill="${baseColor}"/>
+            <circle cx="28" cy="27" r="1.2" fill="${baseColor}"/>
+            <circle cx="36" cy="27" r="1.2" fill="${baseColor}"/>
+          `;
+        } else if (s.pat === 'sash') {
+          patSvg = `
+            <polygon points="17,14 26,7 48,46 47,56" fill="${accColor}"/>
+          `;
+        } else if (s.pat === 'half') {
+          patSvg = `
+            <path d="M32,7 Q32,14 40,7 L45,9 C49,11 55,14 58,18 L55,28 L46,23 C45,34 45,44 47,60 Q39,62 32,62 Z" fill="${accColor}"/>
+          `;
+        } else if (s.pat === 'chevron') {
+          patSvg = `
+            <polygon points="18,20 32,33 46,20 46,26 32,39 18,26" fill="${accColor}"/>
+          `;
         }
       }
 
-      // Brazalete de Capitán en la manga
+      // Brazalete de Capitán en la manga izquierda
       const armbandSvg = isCaptain ? `
-        <rect x="37" y="17" width="6" height="5" rx="1" fill="#fbbf24" stroke="#000" stroke-width="0.5"/>
-        <text x="40" y="21" font-family="-apple-system, sans-serif" font-size="4" font-weight="900" fill="#000" text-anchor="middle">C</text>
+        <g transform="translate(6, 21)">
+          <polygon points="0,0 6,2 5,6 -1,4" fill="#fbbf24" stroke="#ffffff" stroke-width="0.6"/>
+          <text x="2.5" y="4" font-family="-apple-system, sans-serif" font-size="4.5" font-weight="900" fill="#000" text-anchor="middle" dominant-baseline="central">C</text>
+        </g>
       ` : '';
+
+      const clipId = `jClip_${p.id}`;
 
       return `
         <div class="pitch-jersey-wrap">
           ${isCaptain ? '<div class="badge-captain-crown">👑</div>' : ''}
-          <svg class="pitch-jersey-svg" viewBox="0 0 48 50" xmlns="http://www.w3.org/2000/svg">
+          <svg class="pitch-jersey-svg" viewBox="0 0 64 66" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <filter id="jShadow_${p.id}" x="-10%" y="-10%" width="130%" height="130%">
-                <feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#000000" flood-opacity="0.6"/>
+              <clipPath id="${clipId}">
+                <path d="${bodyShape}"/>
+              </clipPath>
+              <filter id="jShadow_${p.id}" x="-12%" y="-10%" width="128%" height="128%">
+                <feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.7"/>
               </filter>
-              <linearGradient id="jShine_${p.id}" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
-                <stop offset="40%" stop-color="#ffffff" stop-opacity="0"/>
-                <stop offset="100%" stop-color="#000000" stop-opacity="0.3"/>
+              <linearGradient id="fabricShine_${p.id}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.32"/>
+                <stop offset="35%" stop-color="#ffffff" stop-opacity="0.08"/>
+                <stop offset="70%" stop-color="#000000" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#000000" stop-opacity="0.36"/>
               </linearGradient>
             </defs>
+
             <g filter="url(#jShadow_${p.id})">
-              <!-- Torso y Mangas -->
-              <path d="M15,6 L20,3 L28,3 L33,6 L44,14 L39,22 L34,18 L34,44 L14,44 L14,18 L9,22 L4,14 Z" 
-                    fill="${baseColor}" stroke="rgba(0,0,0,0.35)" stroke-width="0.8"/>
-              
-              <!-- Patrón de Club -->
-              ${patSvg}
+              <!-- Base Camiseta con silueta atlética contorneada -->
+              <path d="${bodyShape}" fill="${baseColor}" stroke="rgba(0,0,0,0.35)" stroke-width="0.8"/>
 
-              <!-- Brillo y Volumen 3D -->
-              <path d="M15,6 L20,3 L28,3 L33,6 L44,14 L39,22 L34,18 L34,44 L14,44 L14,18 L9,22 L4,14 Z" 
-                    fill="url(#jShine_${p.id})" pointer-events="none"/>
+              <!-- Patrón y detalles contenidos en la forma de la camiseta -->
+              <g clip-path="url(#${clipId})">
+                ${patSvg}
+                <!-- Puños de las mangas -->
+                <path d="M6,18 L9,28 L11,27 L8,17 Z" fill="${cuffColor}"/>
+                <path d="M58,18 L55,28 L53,27 L56,17 Z" fill="${cuffColor}"/>
+                <!-- Sombreado 3D de tela y volumen aerodinámico -->
+                <path d="${bodyShape}" fill="url(#fabricShine_${p.id})" pointer-events="none"/>
+                <!-- Sombras sutiles en los costados bajo las mangas -->
+                <path d="M18,23 C19,34 19,44 17,60 L20,60 C21,44 21,34 20,23 Z" fill="rgba(0,0,0,0.18)" pointer-events="none"/>
+                <path d="M46,23 C45,34 45,44 47,60 L44,60 C43,44 43,34 44,23 Z" fill="rgba(0,0,0,0.18)" pointer-events="none"/>
+              </g>
 
-              <!-- Cuello -->
-              <path d="M19,3 Q24,9.5 29,3" fill="none" stroke="${collarColor}" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Cuello atlético contorneado con inserto central -->
+              <path d="M23,7 Q32,15 41,7" fill="none" stroke="${collarColor}" stroke-width="3" stroke-linecap="round"/>
+              <path d="M23,7 Q32,15 41,7" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="1" stroke-linecap="round"/>
+              <polygon points="30,12 34,12 32,15" fill="${collarColor}"/>
 
-              <!-- Brazalete Capitán -->
+              <!-- Mini Escudo del Club en el pecho (corazón) -->
+              <g transform="translate(39, 21)">
+                <path d="M-4,-4 L4,-4 L4,2 Q4,6 0,8 Q-4,6 -4,2 Z" fill="${collarColor}" stroke="${accColor}" stroke-width="0.8"/>
+                <circle cx="0" cy="1" r="1.8" fill="${accColor}"/>
+              </g>
+
+              <!-- Brazalete Capitán (C) -->
               ${armbandSvg}
 
-              <!-- Dorsal Oficial -->
-              <text x="24" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Impact', sans-serif" 
-                    font-size="16" font-weight="900" fill="${numColor}" text-anchor="middle"
-                    stroke="rgba(0,0,0,0.4)" stroke-width="0.7" style="letter-spacing: -0.5px;">${num}</text>
+              <!-- Dorsal Oficial Grande, Nítido y Centrado -->
+              <text x="32" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Impact, sans-serif" 
+                    font-size="20" font-weight="950" fill="${numColor}" text-anchor="middle" dominant-baseline="central"
+                    stroke="rgba(0,0,0,0.5)" stroke-width="0.8" style="letter-spacing: -0.5px;">${num}</text>
             </g>
           </svg>
         </div>
@@ -8030,20 +9028,91 @@
             bOsc.start(now + bt);
             bOsc.stop(now + bt + 0.24);
           });
-        } else if (type === 'whistle') {
-          // Silbatazo de árbitro (dos tonos agudos)
-          const osc1 = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc1.type = 'triangle';
-          osc1.frequency.setValueAtTime(2400, now);
-          osc1.frequency.setValueAtTime(2600, now + 0.08);
-          osc1.frequency.setValueAtTime(2400, now + 0.16);
-          gain.gain.setValueAtTime(0.18, now);
-          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.32);
-          osc1.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc1.start(now);
-          osc1.stop(now + 0.32);
+                } else if (type === 'whistle') {
+          // Silbatazo Oficial de Árbitro Liga MX (Acme Thunderer / Fox 40 Classic)
+          // 1. Dos osciladores con frecuencias batientes (interferencia acústica)
+          // 2. Modulador LFO (vibrato de bolilla / turbulencia interna a 28 Hz)
+          // 3. Ráfaga de ruido de aire presurizado por filtro pasa-banda
+          // 4. Cadencia de partido: Toque inicial seco + Ráfaga potente extendida
+
+          function createWhistleBlast(startTime, duration, volume) {
+            // Oscilador 1 (tono principal)
+            const osc1 = audioCtx.createOscillator();
+            // Oscilador 2 (segundo armónico para batimiento metálico ~280 Hz)
+            const osc2 = audioCtx.createOscillator();
+
+            // LFO para el aleteo / vibrato del aire de la bolilla
+            const lfo = audioCtx.createOscillator();
+            const lfoGain = audioCtx.createGain();
+            lfo.frequency.setValueAtTime(28, startTime);
+            lfoGain.gain.setValueAtTime(65, startTime);
+            lfo.connect(osc1.frequency);
+            lfo.connect(osc2.frequency);
+
+            osc1.type = 'triangle';
+            osc2.type = 'sine';
+
+            // Frecuencias Fox 40: 2880 Hz y 3160 Hz (diferencia = 280 Hz de estridencia pura)
+            osc1.frequency.setValueAtTime(2880, startTime);
+            osc2.frequency.setValueAtTime(3160, startTime);
+
+            // Caída de frecuencia al soltar el silbato (pitch drop)
+            osc1.frequency.setValueAtTime(2880, startTime + duration * 0.7);
+            osc1.frequency.exponentialRampToValueAtTime(2450, startTime + duration);
+            osc2.frequency.setValueAtTime(3160, startTime + duration * 0.7);
+            osc2.frequency.exponentialRampToValueAtTime(2700, startTime + duration);
+
+            // Envolvente de ganancia del silbato
+            const toneGain = audioCtx.createGain();
+            toneGain.gain.setValueAtTime(0.0001, startTime);
+            toneGain.gain.linearRampToValueAtTime(volume, startTime + 0.015);
+            toneGain.gain.setValueAtTime(volume * 0.95, startTime + duration * 0.75);
+            toneGain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+            osc1.connect(toneGain);
+            osc2.connect(toneGain);
+
+            // Soplido de aire presurizado (White Noise con Bandpass Filter)
+            const bufferSize = Math.floor(audioCtx.sampleRate * duration);
+            const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const output = noiseBuffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+              output[i] = (Math.random() * 2 - 1) * 0.45;
+            }
+
+            const whiteNoise = audioCtx.createBufferSource();
+            whiteNoise.buffer = noiseBuffer;
+
+            const bandpass = audioCtx.createBiquadFilter();
+            bandpass.type = 'bandpass';
+            bandpass.frequency.setValueAtTime(3100, startTime);
+            bandpass.Q.setValueAtTime(3.8, startTime);
+
+            const noiseGain = audioCtx.createGain();
+            noiseGain.gain.setValueAtTime(0.0001, startTime);
+            noiseGain.gain.linearRampToValueAtTime(volume * 0.35, startTime + 0.02);
+            noiseGain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+            whiteNoise.connect(bandpass);
+            bandpass.connect(noiseGain);
+
+            toneGain.connect(audioCtx.destination);
+            noiseGain.connect(audioCtx.destination);
+
+            lfo.start(startTime);
+            osc1.start(startTime);
+            osc2.start(startTime);
+            whiteNoise.start(startTime);
+
+            lfo.stop(startTime + duration);
+            osc1.stop(startTime + duration);
+            osc2.stop(startTime + duration);
+            whiteNoise.stop(startTime + duration);
+          }
+
+          // Doble toque reglamentario de árbitro
+          createWhistleBlast(now, 0.09, 0.22);
+          createWhistleBlast(now + 0.14, 0.42, 0.26);
         } else if (type === 'boom') {
           // Impacto de Sub-bajo de Estadio Azteca
           const osc = audioCtx.createOscillator();
@@ -8324,6 +9393,124 @@ ${rowsText}
       { short: 'MAZ', name: 'Armada Cañonera', club: 'Mazatlán FC', members: 390, icon: '⚓' }
     ];
 
+
+    // ==========================================
+    // RANKING EXCLUSIVO DE AFICIONES (LIGA MX)
+    // ==========================================
+    const FANBASE_STANDINGS_J11 = [
+      { rank: 1, club: "Club América", short: "AME", icon: "🦅", dts: 4210, avg: 68.4, total: 287964 },
+      { rank: 2, club: "Deportivo Toluca", short: "TOL", icon: "👹", dts: 1940, avg: 66.8, total: 129592 },
+      { rank: 3, club: "CD Guadalajara", short: "CHI", icon: "🐐", dts: 3890, avg: 65.2, total: 253628 },
+      { rank: 4, club: "Cruz Azul", short: "CAZ", icon: "🚂", dts: 2750, avg: 64.7, total: 177925 },
+      { rank: 5, club: "Tigres UANL", short: "TIG", icon: "🐯", dts: 2420, avg: 63.9, total: 154638 },
+      { rank: 6, club: "CF Monterrey", short: "MTY", icon: "🤠", dts: 2180, avg: 62.5, total: 136250 },
+      { rank: 7, club: "Pumas UNAM", short: "PUM", icon: "🐾", dts: 1820, avg: 61.8, total: 112476 },
+      { rank: 8, club: "Club León", short: "LEO", icon: "🦁", dts: 1120, avg: 59.4, total: 66528 },
+      { rank: 9, club: "Atlas FC", short: "ATS", icon: "🦊", dts: 1050, avg: 58.7, total: 61635 },
+      { rank: 10, club: "CF Pachuca", short: "PAC", icon: "🐹", dts: 920, avg: 58.1, total: 53452 },
+      { rank: 11, club: "Club Santos Laguna", short: "SAN", icon: "⚔️", dts: 890, avg: 57.3, total: 50997 },
+      { rank: 12, club: "Club Necaxa", short: "NEC", icon: "⚡", dts: 640, avg: 55.6, total: 35584 },
+      { rank: 13, club: "Club Puebla", short: "PUE", icon: "🎽", dts: 580, avg: 54.8, total: 31784 },
+      { rank: 14, club: "Club Tijuana", short: "TIJ", icon: "🐕", dts: 540, avg: 54.2, total: 29268 },
+      { rank: 15, club: "Querétaro FC", short: "QRO", icon: "🐓", dts: 510, avg: 53.5, total: 27285 },
+      { rank: 16, club: "Atlético de San Luis", short: "ADSL", icon: "🛡️", dts: 480, avg: 52.9, total: 25392 },
+      { rank: 17, club: "FC Juárez", short: "JUA", icon: "🐎", dts: 430, avg: 51.4, total: 22102 },
+      { rank: 18, club: "Atlante FC", short: "ATL", icon: "🐎", dts: 390, avg: 49.8, total: 19422 }
+    ];
+
+    function renderFanbaseRankings() {
+      const tbody = document.getElementById('fanRankTableBody');
+      if (!tbody) return;
+
+      tbody.innerHTML = FANBASE_STANDINGS_J11.map(row => {
+        const isMyClub = (row.club === currentUser.favoriteClub);
+        return `
+          <tr class="fan-rank-row ${isMyClub ? 'my-club' : ''}">
+            <td style="font-weight: 800; color: ${row.rank <= 3 ? 'var(--gold)' : '#cbd5e1'};">
+              ${row.rank === 1 ? '🥇 1' : (row.rank === 2 ? '🥈 2' : (row.rank === 3 ? '🥉 3' : row.rank))}
+            </td>
+            <td style="text-align: left; padding-left: 12px;">
+              <div style="display: flex; align-items: center; gap: 7px;">
+                <span style="font-size: 16px;">${row.icon}</span>
+                <div>
+                  <div style="font-weight: 800; color: ${isMyClub ? '#fef08a' : '#ffffff'};">${row.club} ${isMyClub ? '<span style="font-size: 9px; color: var(--gold); border: 1px solid var(--gold); border-radius: 4px; padding: 1px 4px; margin-left: 4px;">TU CLUB</span>' : ''}</div>
+                </div>
+              </div>
+            </td>
+            <td>${row.dts.toLocaleString()}</td>
+            <td style="color: #4ade80; font-weight: 900; font-size: 12.5px;">${row.avg.toFixed(1)} pts</td>
+            <td style="color: #94a3b8;">${row.total.toLocaleString()}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // ==========================================
+    // PERSONALIZACIÓN DEL ESTADIO SEGÚN TU CLUB (INTRO)
+    // ==========================================
+    function applyUserClubStadiumLighting() {
+      if (!currentUser.isLoggedIn || !currentUser.clubShort) return;
+
+      const clubLights = {
+        'PUM': { l: 'rgba(30, 58, 138, 0.40)', r: 'rgba(251, 191, 36, 0.40)', glow: 'rgba(251, 191, 36, 0.35)' },
+        'CHI': { l: 'rgba(239, 68, 68, 0.40)', r: 'rgba(255, 255, 255, 0.40)', glow: 'rgba(239, 68, 68, 0.35)' },
+        'AME': { l: 'rgba(254, 240, 138, 0.45)', r: 'rgba(30, 58, 138, 0.40)', glow: 'rgba(254, 240, 138, 0.35)' },
+        'CAZ': { l: 'rgba(37, 99, 235, 0.45)', r: 'rgba(255, 255, 255, 0.40)', glow: 'rgba(37, 99, 235, 0.35)' },
+        'TIG': { l: 'rgba(245, 158, 11, 0.45)', r: 'rgba(30, 58, 138, 0.40)', glow: 'rgba(245, 158, 11, 0.35)' },
+        'MTY': { l: 'rgba(30, 58, 138, 0.45)', r: 'rgba(255, 255, 255, 0.40)', glow: 'rgba(30, 58, 138, 0.35)' },
+        'TOL': { l: 'rgba(220, 38, 38, 0.45)', r: 'rgba(255, 255, 255, 0.40)', glow: 'rgba(220, 38, 38, 0.35)' },
+        'ATS': { l: 'rgba(220, 38, 38, 0.45)', r: 'rgba(15, 23, 42, 0.60)', glow: 'rgba(220, 38, 38, 0.35)' },
+        'SAN': { l: 'rgba(22, 163, 74, 0.45)', r: 'rgba(255, 255, 255, 0.40)', glow: 'rgba(22, 163, 74, 0.35)' },
+        'LEO': { l: 'rgba(21, 128, 61, 0.45)', r: 'rgba(250, 204, 21, 0.40)', glow: 'rgba(21, 128, 61, 0.35)' },
+        'PAC': { l: 'rgba(255, 255, 255, 0.45)', r: 'rgba(2, 132, 199, 0.40)', glow: 'rgba(2, 132, 199, 0.35)' }
+      };
+
+      const c = clubLights[currentUser.clubShort];
+      if (!c) return;
+
+      const bLeft = document.querySelector('.splash-light-beam-left');
+      const bRight = document.querySelector('.splash-light-beam-right');
+      const glow = document.querySelector('.splash-sunburst-glow');
+
+      if (bLeft) bLeft.style.background = `linear-gradient(135deg, ${c.l} 0%, transparent 70%)`;
+      if (bRight) bRight.style.background = `linear-gradient(225deg, ${c.r} 0%, transparent 70%)`;
+      if (glow) glow.style.background = `radial-gradient(circle, ${c.glow} 0%, transparent 75%)`;
+    }
+
+    // ==========================================
+    // ALERTA DE PARTIDO DE TU CLUB (MI ONCE Y QUINIELA)
+    // ==========================================
+    function updateUserClubMatchAlert() {
+      if (!currentUser.isLoggedIn || !currentUser.favoriteClub) return;
+
+      const fixtures = DB.fixtures['11'] || [];
+      const myMatch = fixtures.find(f => f.home === currentUser.favoriteClub || f.away === currentUser.favoriteClub ||
+                                         f.hShort === currentUser.clubShort || f.aShort === currentUser.clubShort);
+
+      // En la cabecera mínima de la cancha
+      let alertEl = document.getElementById('userClubMatchAlertBar');
+      if (!alertEl) {
+        const canchitaPitch = document.getElementById('canchitaViewPitch');
+        if (canchitaPitch) {
+          alertEl = document.createElement('div');
+          alertEl.id = 'userClubMatchAlertBar';
+          alertEl.className = 'user-club-match-alert';
+          canchitaPitch.insertBefore(alertEl, canchitaPitch.querySelector('.pitch-wrapper'));
+        }
+      }
+
+      if (alertEl && myMatch) {
+        alertEl.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span>${currentUser.clubIcon || '⚽'}</span>
+            <span><strong>¡Tu club juega este fin de semana!</strong> ${myMatch.home} vs ${myMatch.away} · ${myMatch.time}</span>
+          </div>
+          <span class="user-club-match-badge">J11 Oficial</span>
+        `;
+        alertEl.style.display = 'flex';
+      }
+    }
+
     function renderPenasList() {
       const container = document.getElementById('penasListContainer');
       if (!container) return;
@@ -8427,7 +9614,7 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
     function initSplashParticles() {
       const canvas = document.getElementById('splashParticleCanvas');
       if (!canvas) return;
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext('2d', { alpha: true });
 
       function resize() {
         canvas.width = window.innerWidth;
@@ -8436,37 +9623,49 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
       resize();
       window.addEventListener('resize', resize);
 
+      // Pre-renderizado de sprite de niebla suave en offscreen canvas (100x más rápido, 60fps)
+      const fogSprite = document.createElement('canvas');
+      fogSprite.width = 160;
+      fogSprite.height = 160;
+      const fCtx = fogSprite.getContext('2d');
+      const fGrad = fCtx.createRadialGradient(80, 80, 0, 80, 80, 80);
+      fGrad.addColorStop(0, 'rgba(16, 185, 129, 0.12)');
+      fGrad.addColorStop(0.5, 'rgba(16, 185, 129, 0.04)');
+      fGrad.addColorStop(1, 'transparent');
+      fCtx.fillStyle = fGrad;
+      fCtx.beginPath();
+      fCtx.arc(80, 80, 80, 0, Math.PI * 2);
+      fCtx.fill();
+
       const colors = ['#fbbf24', '#fef08a', '#34d399', '#10b981', '#38bdf8', '#ffffff'];
       splashParticles = [];
-      const particleCount = Math.min(70, Math.floor(window.innerWidth / 13));
+      const particleCount = Math.min(45, Math.floor(window.innerWidth / 18));
 
       // 1. Chispas y Polvo de Estadio
       for (let i = 0; i < particleCount; i++) {
         splashParticles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          radius: Math.random() * 2.4 + 0.8,
+          radius: Math.random() * 2.2 + 0.8,
           color: colors[Math.floor(Math.random() * colors.length)],
-          vx: (Math.random() - 0.5) * 0.7,
-          vy: -(Math.random() * 1.2 + 0.4),
+          vx: (Math.random() - 0.5) * 0.6,
+          vy: -(Math.random() * 1.0 + 0.3),
           alpha: Math.random() * 0.7 + 0.2,
-          alphaSpeed: Math.random() * 0.015 + 0.005,
+          alphaSpeed: Math.random() * 0.012 + 0.004,
           pulse: Math.random() * Math.PI
         });
       }
 
-      // 2. Niebla Volumétrica de Césped a ras de suelo
+      // 2. Niebla de Césped optimizada con sprites pre-renderizados
       const fogParticles = [];
-      const fogCount = Math.min(18, Math.floor(window.innerWidth / 35));
+      const fogCount = Math.min(10, Math.floor(window.innerWidth / 50));
       for (let i = 0; i < fogCount; i++) {
         fogParticles.push({
-          x: Math.random() * (canvas.width + 200) - 100,
-          y: canvas.height - (Math.random() * 120 + 20),
-          radius: Math.random() * 80 + 90,
-          vx: Math.random() * 0.4 + 0.15,
-          alpha: Math.random() * 0.08 + 0.05,
-          phase: Math.random() * Math.PI * 2,
-          color: i % 2 === 0 ? 'rgba(16, 185, 129,' : 'rgba(251, 191, 36,'
+          x: Math.random() * (canvas.width + 100) - 50,
+          y: canvas.height - (Math.random() * 90 + 30),
+          size: Math.random() * 80 + 120,
+          vx: Math.random() * 0.35 + 0.15,
+          alpha: Math.random() * 0.7 + 0.3
         });
       }
 
@@ -8476,71 +9675,73 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
 
       function launchFirework(targetX, targetY, customColors) {
         fireworksRockets.push({
-          x: targetX + (Math.random() - 0.5) * 60,
-          y: canvas.height + 20,
-          targetY: targetY || (Math.random() * (canvas.height * 0.35) + 60),
-          vy: -(Math.random() * 4 + 8.5),
-          vx: (Math.random() - 0.5) * 1.5,
+          x: targetX + (Math.random() - 0.5) * 50,
+          y: canvas.height + 15,
+          targetY: targetY || (Math.random() * (canvas.height * 0.32) + 50),
+          vy: -(Math.random() * 3.5 + 8.0),
+          vx: (Math.random() - 0.5) * 1.2,
           colors: customColors || ['#16a34a', '#ffffff', '#dc2626', '#fbbf24', '#fef08a']
         });
       }
 
       function explodeFirework(x, y, palette) {
-        const count = 38;
+        const count = 32;
         for (let i = 0; i < count; i++) {
-          const angle = (Math.PI * 2 / count) * i + (Math.random() - 0.5) * 0.3;
-          const speed = Math.random() * 4.2 + 1.8;
+          const angle = (Math.PI * 2 / count) * i;
+          const speed = Math.random() * 3.8 + 1.6;
           fireworkParticles.push({
             x: x,
             y: y,
             vx: Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
-            radius: Math.random() * 2.5 + 1.2,
+            radius: Math.random() * 2.2 + 1.0,
             color: palette[Math.floor(Math.random() * palette.length)],
             alpha: 1,
-            decay: Math.random() * 0.02 + 0.015,
-            gravity: 0.07
+            decay: Math.random() * 0.025 + 0.018,
+            gravity: 0.06
           });
         }
       }
 
-      function addSparks(px, py, count = 12) {
+      function addSparks(px, py, count = 10) {
         for (let i = 0; i < count; i++) {
           const angle = Math.random() * Math.PI * 2;
-          const speed = Math.random() * 4 + 1.5;
+          const speed = Math.random() * 3.5 + 1.2;
           splashParticles.push({
             x: px,
             y: py,
-            radius: Math.random() * 2.8 + 1.2,
+            radius: Math.random() * 2.4 + 1.0,
             color: colors[Math.floor(Math.random() * colors.length)],
             vx: Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
             alpha: 1,
-            alphaSpeed: 0.03,
+            alphaSpeed: 0.035,
             pulse: 0,
             spark: true
           });
         }
       }
 
-      // Interacción de mouse / touch para emitir chispas y pirotecnia
+      // Interacción de mouse / touch para emitir chispas
       const splashOverlay = document.getElementById('introSplashOverlay');
       if (splashOverlay) {
+        let lastMove = 0;
         splashOverlay.addEventListener('mousemove', (e) => {
-          if (Math.random() > 0.4) return;
+          const now = Date.now();
+          if (now - lastMove < 35) return;
+          lastMove = now;
           addSparks(e.clientX, e.clientY, 2);
 
-          // 3D tilt del escudo con el cursor
           const shieldBox = document.getElementById('splashShieldBox');
           if (shieldBox) {
             const rect = shieldBox.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
-            const tiltX = (e.clientY - centerY) / 14;
-            const tiltY = -(e.clientX - centerX) / 14;
-            shieldBox.style.transform = `perspective(800px) rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg) scale(1.03)`;
+            const tiltX = (e.clientY - centerY) / 16;
+            const tiltY = -(e.clientX - centerX) / 16;
+            shieldBox.style.transform = `perspective(800px) rotateX(${tiltX.toFixed(1)}deg) rotateY(${tiltY.toFixed(1)}deg) scale(1.02)`;
           }
-        });
+        }, { passive: true });
 
         splashOverlay.addEventListener('mouseleave', () => {
           const shieldBox = document.getElementById('splashShieldBox');
@@ -8552,30 +9753,18 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
         if (splashDismissed) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // A. Renderizar Niebla Volumétrica de Césped
+        // A. Renderizar Niebla de Césped por Sprites pre-renderizados
         for (let i = 0; i < fogParticles.length; i++) {
           const f = fogParticles[i];
           f.x += f.vx;
-          f.phase += 0.02;
-          if (f.x > canvas.width + f.radius) {
-            f.x = -f.radius;
+          if (f.x > canvas.width + f.size) {
+            f.x = -f.size;
           }
-
-          const currentAlpha = f.alpha * (0.8 + Math.sin(f.phase) * 0.25);
-          const grad = ctx.createRadialGradient(f.x, f.y, 5, f.x, f.y, f.radius);
-          grad.addColorStop(0, `${f.color} ${currentAlpha})`);
-          grad.addColorStop(0.6, `${f.color} ${currentAlpha * 0.4})`);
-          grad.addColorStop(1, 'transparent');
-
-          ctx.save();
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
-          ctx.fillStyle = grad;
-          ctx.fill();
-          ctx.restore();
+          ctx.globalAlpha = f.alpha;
+          ctx.drawImage(fogSprite, f.x - f.size / 2, f.y - f.size / 2, f.size, f.size);
         }
 
-        // B. Renderizar Chispas y Polvo de Estadio
+        // B. Renderizar Chispas y Polvo de Estadio (Rápido, sin shadowBlur)
         for (let i = splashParticles.length - 1; i >= 0; i--) {
           const p = splashParticles[i];
           p.x += p.vx;
@@ -8583,7 +9772,7 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
           p.pulse += 0.03;
 
           if (p.spark) {
-            p.vy += 0.08; // gravedad
+            p.vy += 0.08;
             p.alpha -= p.alphaSpeed;
             if (p.alpha <= 0) {
               splashParticles.splice(i, 1);
@@ -8597,15 +9786,11 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
             }
           }
 
-          ctx.save();
           ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha));
+          ctx.fillStyle = p.color;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fillStyle = p.color;
-          ctx.shadowColor = p.color;
-          ctx.shadowBlur = p.spark ? 10 : 6;
           ctx.fill();
-          ctx.restore();
         }
 
         // C. Renderizar Cohetes de Fuegos Artificiales
@@ -8614,20 +9799,11 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
           r.x += r.vx;
           r.y += r.vy;
 
-          // Traza del cohete
-          ctx.save();
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = '#fef08a';
           ctx.beginPath();
           ctx.arc(r.x, r.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = '#fef08a';
-          ctx.shadowColor = '#fbbf24';
-          ctx.shadowBlur = 12;
           ctx.fill();
-          ctx.restore();
-
-          // Estela de chispas
-          if (Math.random() > 0.3) {
-            addSparks(r.x, r.y, 1);
-          }
 
           if (r.y <= r.targetY) {
             explodeFirework(r.x, r.y, r.colors);
@@ -8649,17 +9825,14 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
             continue;
           }
 
-          ctx.save();
           ctx.globalAlpha = fp.alpha;
+          ctx.fillStyle = fp.color;
           ctx.beginPath();
           ctx.arc(fp.x, fp.y, fp.radius, 0, Math.PI * 2);
-          ctx.fillStyle = fp.color;
-          ctx.shadowColor = fp.color;
-          ctx.shadowBlur = 12;
           ctx.fill();
-          ctx.restore();
         }
 
+        ctx.globalAlpha = 1;
         splashParticlesAnim = requestAnimationFrame(animate);
       }
       animate();
@@ -8770,6 +9943,13 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
       setTimeout(() => {
         showHolographicDtCard();
       }, 750);
+
+      // Si es un nuevo visitante no registrado, abrir invitación de registro y elección de club
+      setTimeout(() => {
+        if (!currentUser.isLoggedIn) {
+          openAuthModal();
+        }
+      }, 5400);
     }
 
     // Control de la Tarjeta Holográfica del DT (Option 3)
@@ -8880,6 +10060,197 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
       initSplashParticles();
       startSplashProgress();
     }, 100);
+
+
+    // ==========================================
+    // CREADOR DE ESCUDOS DE BARRIO (Opción 5)
+    // ==========================================
+    let customBadgeState = {
+      shape: 'azteca',
+      icon: '👑',
+      primary: '#fbbf24',
+      secondary: '#0f172a',
+      name: 'Mi Once Pambolero'
+    };
+
+    function loadCustomBadge() {
+      try {
+        const saved = localStorage.getItem('pambol_custom_badge');
+        if (saved) {
+          customBadgeState = JSON.parse(saved);
+        }
+      } catch (e) {
+        console.warn('Error loading custom badge:', e);
+      }
+      applyCustomBadgeToUI();
+    }
+
+    function applyCustomBadgeToUI() {
+      const avatarEl = document.getElementById('userCustomBadgeIcon');
+      const titleEl = document.getElementById('userCustomTeamTitle');
+      if (avatarEl) avatarEl.textContent = customBadgeState.icon;
+      if (titleEl) titleEl.textContent = customBadgeState.name;
+    }
+
+    function openBadgeBuilderModal() {
+      document.getElementById('badgeBuilderModalOverlay').classList.add('open');
+      const nameInput = document.getElementById('badgeTeamNameInput');
+      if (nameInput) nameInput.value = customBadgeState.name;
+      updateCustomBadgePreview();
+    }
+
+    function closeBadgeBuilderModal(e) {
+      document.getElementById('badgeBuilderModalOverlay').classList.remove('open');
+    }
+
+    function setBadgeShape(shape, el) {
+      customBadgeState.shape = shape;
+      document.querySelectorAll('[data-shape]').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      updateCustomBadgePreview();
+    }
+
+    function setBadgeIcon(icon, el) {
+      customBadgeState.icon = icon;
+      document.querySelectorAll('[data-icon]').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      updateCustomBadgePreview();
+    }
+
+    function setBadgePalette(prim, sec, el) {
+      customBadgeState.primary = prim;
+      customBadgeState.secondary = sec;
+      document.querySelectorAll('[data-palette]').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      updateCustomBadgePreview();
+    }
+
+    function updateCustomBadgePreview() {
+      const container = document.getElementById('badgePreviewContainer');
+      if (!container) return;
+      const nameInput = document.getElementById('badgeTeamNameInput');
+      if (nameInput) customBadgeState.name = nameInput.value || 'Mi Once Pambolero';
+
+      const s = customBadgeState;
+      let pathD = '';
+      if (s.shape === 'azteca') {
+        pathD = 'M50,8 L85,18 L92,52 Q92,85 50,96 Q8,85 8,52 L15,18 Z';
+      } else if (s.shape === 'clasico') {
+        pathD = 'M14,10 L86,10 L86,55 Q86,92 50,96 Q14,92 14,55 Z';
+      } else if (s.shape === 'diamante') {
+        pathD = 'M50,6 L94,50 L50,96 L6,50 Z';
+      } else {
+        pathD = 'M50,8 A42,42 0 1,1 49.9,8 Z';
+      }
+
+      container.innerHTML = `
+        <svg viewBox="0 0 100 105" width="120" height="126" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.8"/>
+            </filter>
+            <linearGradient id="badgeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="${s.primary}"/>
+              <stop offset="100%" stop-color="${s.secondary}"/>
+            </linearGradient>
+          </defs>
+          <g filter="url(#badgeShadow)">
+            <path d="${pathD}" fill="url(#badgeGrad)" stroke="#ffffff" stroke-width="2.5"/>
+            <path d="${pathD}" fill="none" stroke="${s.primary}" stroke-width="1.2" transform="scale(0.88) translate(6.8, 6.5)"/>
+            <text x="50" y="55" font-size="34" text-anchor="middle" dominant-baseline="central">${s.icon}</text>
+            <path d="M20,78 Q50,84 80,78" fill="none" stroke="#ffffff" stroke-width="1"/>
+            <text x="50" y="86" font-family="-apple-system, sans-serif" font-size="7.5" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">${escapeHtml(s.name).substring(0, 16).toUpperCase()}</text>
+          </g>
+        </svg>
+      `;
+    }
+
+    function saveCustomBadge() {
+      try {
+        const nameInput = document.getElementById('badgeTeamNameInput');
+        if (nameInput) customBadgeState.name = nameInput.value || 'Mi Once Pambolero';
+        localStorage.setItem('pambol_custom_badge', JSON.stringify(customBadgeState));
+      } catch (e) {
+        console.warn('Error saving custom badge:', e);
+      }
+      applyCustomBadgeToUI();
+      closeBadgeBuilderModal();
+      playStadiumSound('goal');
+      alert(`🎉 ¡Escudo de "${customBadgeState.name}" guardado con éxito! Tu emblema oficial ya está activo.`);
+    }
+
+    // ==========================================
+    // BOLSA DE VALORES PAMBOLERA (Opción 4)
+    // ==========================================
+    const STOCK_MOVERS_UP = [
+      { id: 10157, name: 'Alexis Vega', team: 'Toluca', pos: 'FWD', price: 10.0, delta: '+0.4 V', buys: '9,420 compras', note: 'Gol de penal y MVP Jornada 11' },
+      { id: 10032, name: 'Henry Martín', team: 'Club América', pos: 'FWD', price: 10.4, delta: '+0.3 V', buys: '8,850 compras', note: 'Anotó en triunfo ante Rayados' },
+      { id: 10083, name: 'Georgios Giakoumakis', team: 'Cruz Azul', pos: 'FWD', price: 9.8, delta: '+0.4 V', buys: '7,910 compras', note: 'Goleador de La Máquina' },
+      { id: 10106, name: 'Juan Brunetta', team: 'Tigres UANL', pos: 'MID', price: 10.5, delta: '+0.2 V', buys: '6,430 compras', note: 'Asistencia y 4 pases clave' },
+      { id: 10066, name: 'Kevin Mier', team: 'Cruz Azul', pos: 'GK', price: 7.4, delta: '+0.3 V', buys: '5,120 compras', note: '4 atajadas y penal contenido' }
+    ];
+
+    const STOCK_MOVERS_DOWN = [
+      { id: 10052, name: 'Omar Govea', team: 'CD Guadalajara', pos: 'MID', price: 5.0, delta: '-0.3 V', sales: '6,210 ventas', note: 'Suspendido por tarjeta roja directa' },
+      { id: 10095, name: 'Jesús Angulo', team: 'Tigres UANL', pos: 'DEF', price: 5.8, delta: '-0.2 V', sales: '4,890 ventas', note: 'Baja médica por distensión muscular' },
+      { id: 10133, name: 'Lucas Ocampos', team: 'CF Monterrey', pos: 'MID', price: 9.2, delta: '-0.2 V', sales: '3,440 ventas', note: 'Rendimiento menor a 5.0 pts en 2 fechas' }
+    ];
+
+    function switchMarketSubTab(tabName) {
+      const catalogEl = document.getElementById('marketCatalogView');
+      const stocksEl = document.getElementById('marketStocksView');
+      const btnCatalog = document.getElementById('btnMarketCatalog');
+      const btnStocks = document.getElementById('btnMarketStocks');
+
+      if (tabName === 'catalog') {
+        if (catalogEl) catalogEl.style.display = 'block';
+        if (stocksEl) stocksEl.style.display = 'none';
+        if (btnCatalog) btnCatalog.classList.add('active');
+        if (btnStocks) btnStocks.classList.remove('active');
+      } else {
+        if (catalogEl) catalogEl.style.display = 'none';
+        if (stocksEl) stocksEl.style.display = 'block';
+        if (btnCatalog) btnCatalog.classList.remove('active');
+        if (btnStocks) btnStocks.classList.add('active');
+        renderStockMovers();
+      }
+    }
+
+    function renderStockMovers() {
+      const upContainer = document.getElementById('stockMoversUpList');
+      const downContainer = document.getElementById('stockMoversDownList');
+
+      if (upContainer) {
+        upContainer.innerHTML = STOCK_MOVERS_UP.map(p => `
+          <div class="stock-ticker-card">
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff;">${p.name}</div>
+              <div style="font-size: 10.5px; color: #cbd5e1;">${p.team} · ${p.pos} · Cotización: <b style="color: var(--gold);">${p.price.toFixed(1)} V</b></div>
+              <div style="font-size: 10px; color: #94a3b8; margin-top: 2px;">📈 ${p.buys} · ${p.note}</div>
+            </div>
+            <div class="stock-trend-badge up">${p.delta}</div>
+          </div>
+        `).join('');
+      }
+
+      if (downContainer) {
+        downContainer.innerHTML = STOCK_MOVERS_DOWN.map(p => `
+          <div class="stock-ticker-card">
+            <div>
+              <div style="font-size: 13px; font-weight: 800; color: #ffffff;">${p.name}</div>
+              <div style="font-size: 10.5px; color: #cbd5e1;">${p.team} · ${p.pos} · Cotización: <b style="color: var(--gold);">${p.price.toFixed(1)} V</b></div>
+              <div style="font-size: 10px; color: #94a3b8; margin-top: 2px;">📉 ${p.sales} · ${p.note}</div>
+            </div>
+            <div class="stock-trend-badge down">${p.delta}</div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Inicializar carga de escudo personalizado al arrancar
+    setTimeout(() => {
+      loadCustomBadge();
+    }, 200);
 
   </script>
 
@@ -9154,6 +10525,67 @@ Te reto a un duelo directo 1 a 1 para la Jornada 11. Mi capitán es ${cap ? cap.
               <span>📲 Compartir</span>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Creador y Personalizador de Escudos de Barrio (Opción 5) -->
+    <div class="picker-overlay" id="badgeBuilderModalOverlay" onclick="closeBadgeBuilderModal(event)">
+      <div class="picker" onclick="event.stopPropagation()">
+        <div class="picker-header">
+          <div>
+            <h3>🎨 Creador de Escudos de Barrio</h3>
+            <div class="picker-subtitle">Personaliza el emblema oficial y el apodo de tu equipo</div>
+          </div>
+          <button class="close-btn" onclick="closeBadgeBuilderModal()">✕</button>
+        </div>
+        <div style="overflow-y: auto; max-height: 75vh; padding-right: 2px;">
+          <!-- Vista Previa Dinámica del Escudo -->
+          <div class="badge-builder-preview-box" id="badgePreviewContainer"></div>
+
+          <!-- Nombre del Equipo -->
+          <div style="margin-bottom: 14px;">
+            <label class="badge-builder-section-title">Nombre o Apodo de tu Escuadra:</label>
+            <input type="text" id="badgeTeamNameInput" value="Mi Once Pambolero" class="picker-search" oninput="updateCustomBadgePreview()" placeholder="Ej: Los Galácticos de Tepito">
+          </div>
+
+          <!-- Forma del Blasón -->
+          <div class="badge-builder-section-title">Forma del Blasón:</div>
+          <div class="badge-options-row">
+            <button type="button" class="badge-opt-btn active" data-shape="azteca" onclick="setBadgeShape('azteca', this)">☀️ Azteca</button>
+            <button type="button" class="badge-opt-btn" data-shape="clasico" onclick="setBadgeShape('clasico', this)">🛡️ Clásico</button>
+            <button type="button" class="badge-opt-btn" data-shape="diamante" onclick="setBadgeShape('diamante', this)">💎 Diamante</button>
+            <button type="button" class="badge-opt-btn" data-shape="redondo" onclick="setBadgeShape('redondo', this)">⚪ Redondo</button>
+          </div>
+
+          <!-- Icono / Mascota -->
+          <div class="badge-builder-section-title">Mascota o Emblema:</div>
+          <div class="badge-options-row">
+            <button type="button" class="badge-opt-btn active" data-icon="🦅" onclick="setBadgeIcon('🦅', this)">🦅 Águila</button>
+            <button type="button" class="badge-opt-btn" data-icon="🐆" onclick="setBadgeIcon('🐆', this)">🐆 Jaguar</button>
+            <button type="button" class="badge-opt-btn" data-icon="👹" onclick="setBadgeIcon('👹', this)">👹 Diablo</button>
+            <button type="button" class="badge-opt-btn" data-icon="🐐" onclick="setBadgeIcon('🐐', this)">🐐 Chivo</button>
+            <button type="button" class="badge-opt-btn" data-icon="⚽" onclick="setBadgeIcon('⚽', this)">⚽ Balón</button>
+            <button type="button" class="badge-opt-btn" data-icon="🌮" onclick="setBadgeIcon('🌮', this)">🌮 Taco</button>
+            <button type="button" class="badge-opt-btn" data-icon="💀" onclick="setBadgeIcon('💀', this)">💀 Calavera</button>
+            <button type="button" class="badge-opt-btn" data-icon="👑" onclick="setBadgeIcon('👑', this)">👑 Corona</button>
+            <button type="button" class="badge-opt-btn" data-icon="⚡" onclick="setBadgeIcon('⚡', this)">⚡ Rayo</button>
+          </div>
+
+          <!-- Paleta de Colores de Barrio -->
+          <div class="badge-builder-section-title">Paleta de Colores:</div>
+          <div class="badge-options-row">
+            <button type="button" class="badge-opt-btn active" data-palette="gold_navy" onclick="setBadgePalette('#fbbf24', '#0f172a', this)">🟡 Oro & Marino</button>
+            <button type="button" class="badge-opt-btn" data-palette="red_white" onclick="setBadgePalette('#dc2626', '#ffffff', this)">🔴 Rojo & Blanco</button>
+            <button type="button" class="badge-opt-btn" data-palette="blue_white" onclick="setBadgePalette('#2563eb', '#ffffff', this)">🔵 Azul & Blanco</button>
+            <button type="button" class="badge-opt-btn" data-palette="green_gold" onclick="setBadgePalette('#16a34a', '#fbbf24', this)">🟢 Verde & Oro</button>
+            <button type="button" class="badge-opt-btn" data-palette="purple_black" onclick="setBadgePalette('#7e22ce', '#000000', this)">🟣 Morado & Negro</button>
+          </div>
+
+          <!-- Botón Guardar -->
+          <button type="button" class="btn-save-quiniela" style="margin-top: 10px;" onclick="saveCustomBadge()">
+            <span>💾 Guardar Escudo Oficial de Mi Once</span>
+          </button>
         </div>
       </div>
     </div>
