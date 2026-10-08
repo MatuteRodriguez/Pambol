@@ -1,0 +1,55 @@
+/* ===================================================
+   PAMBOL LIGA MX FANTASY - ESTILOS DE APP NATIVA Y SAFE AREAS
+   =================================================== */
+
+/* Bloqueo de gestos molestos de navegador web */
+html, body {
+  overscroll-behavior-y: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  touch-action: pan-x pan-y !important;
+}
+
+/* Permitir selección y edición en inputs y textos seleccionables */
+input, textarea, [contenteditable="true"], .selectable-text {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  touch-action: auto !important;
+}
+
+/* Márgenes seguros para iPhone Notch y barras de gestos */
+.header {
+  padding-top: calc(8px + env(safe-area-inset-top, 0px)) !important;
+  padding-left: calc(12px + env(safe-area-inset-left, 0px)) !important;
+  padding-right: calc(12px + env(safe-area-inset-right, 0px)) !important;
+}
+
+.mobile-container {
+  padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.nav-bar {
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+  height: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+#toastHost {
+  bottom: calc(85px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+.picker {
+  padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px)) !important;
+}
+
+/* Escudo oficial de PAMBOL en cabecera */
+.app-official-logo {
+  height: 38px !important;
+  width: auto !important;
+  max-width: 44px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.75)) !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  border-radius: 8px !important;
+}

@@ -1,8 +1,9 @@
-const CACHE_NAME = 'pambol-cache-v1';
+const CACHE_NAME = 'pambol-cache-v2';
 const ASSETS_TO_CACHE = [
-  './pambol_app.html',
+  './index.html',
   './manifest.json',
-  './assets/pambol_logo.webp'
+  './assets/pambol_logo.webp',
+  './assets/pambol_shield_full.png'
 ];
 
 self.addEventListener('install', event => {
@@ -29,7 +30,7 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(response => {
       return response || fetch(event.request).catch(() => {
-        return caches.match('./pambol_app.html');
+        return caches.match('./index.html');
       });
     })
   );

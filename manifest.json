@@ -2,10 +2,11 @@
   "name": "PAMBOL · Liga MX Fantasy & Quiniela",
   "short_name": "PAMBOL",
   "description": "La plataforma oficial de Fantasy y Quiniela para el Apertura 2026 de la Liga MX.",
-  "start_url": "./pambol_app.html",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#090d16",
-  "theme_color": "#090d16",
+  "background_color": "#070a13",
+  "theme_color": "#070a13",
   "orientation": "portrait",
   "icons": [
     {
@@ -21,5 +22,9 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["sports", "games", "entertainment"]
+  "categories": [
+    "sports",
+    "games",
+    "entertainment"
+  ]
 }
