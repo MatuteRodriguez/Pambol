@@ -979,7 +979,7 @@ create or replace function public.pambol_new_code()
 returns text language plpgsql volatile as $$
 declare
   alphabet text := 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  b bytea := gen_random_bytes(6);
+  b bytea := decode(substr(replace(gen_random_uuid()::text, '-', ''), 1, 12), 'hex');  -- 6 bytes aleatorios (núcleo de Postgres)
   out text := '';
   i int;
 begin
