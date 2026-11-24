@@ -1317,3 +1317,17 @@ begin
     begin execute 'alter publication supabase_realtime add table public.player_stats'; exception when others then null; end;
   end if;
 end $$;
+
+-- search_path fijo en todas las funciones de PAMBOL (recomendación del asesor de seguridad de Supabase)
+do $$
+declare f record;
+begin
+  for f in select p.oid::regprocedure as sig from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+           where n.nspname = 'public' and p.prokind = 'f' and p.proconfig is null
+             and p.proname in ('fantasy_teams_no_delete','pambol_is_api_role','player_stats_compute','fixtures_after_change','fixtures_touch',
+               'players_price_history','gw_deadline','gw_locked_clubs','gw_tournament','pambol_baseline_team','pambol_squad_ids','pambol_role',
+               'pambol_stat_points','pambol_score_squad','pambol_score_team','pambol_new_code')
+  loop
+    execute format('alter function %s set search_path = public', f.sig);
+  end loop;
+end $$;
