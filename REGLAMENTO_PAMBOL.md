@@ -1,6 +1,6 @@
 # REGLAMENTO OFICIAL PAMBOL · LIGA MX FANTASY & QUINIELA 🇲🇽⚽
 
-**Edición Oficial: Torneo Apertura 2026**
+**Edición: Torneo Clausura 2027** · Juego independiente de aficionados, sin relación con la Liga MX
 
 **Organización:** PAMBOL Deportes México
 
@@ -22,9 +22,9 @@ PAMBOL **no es un juego de simulación ni de azar**. Todos los puntos, estadíst
 
 ## 2. ESTRUCTURA DEL PLANTEL Y PRESUPUESTO
 
-### 2.1. Composición del Plantel (16 Futbolistas + 1 DT)
+### 2.1. Composición del Plantel (15 Futbolistas + 1 DT)
 
-Cada usuario deberá conformar una nómina total de **dieciséis (16) futbolistas** y **un (1) Director Técnico**:
+Cada usuario deberá conformar una nómina total de **quince (15) futbolistas** y **un (1) Director Técnico**:
 
 * **Once Titular (11 jugadores):** Los futbolistas en cancha que sumarán puntos directos en la fecha.
 

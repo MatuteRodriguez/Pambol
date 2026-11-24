@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>PAMBOL · Administración</title>
+  <link rel="icon" href="assets/icons/icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header class="adm-top">
+    <div class="adm-brand">🛠️ PAMBOL <span>Administración</span></div>
+    <div id="admWho" class="adm-who"></div>
+  </header>
+  <nav class="adm-tabs" id="admTabs" hidden>
+    <button data-tab="resumen" class="active">Jornadas</button>
+    <button data-tab="calendario">Calendario</button>
+    <button data-tab="actas">Actas</button>
+    <button data-tab="jugadores">Jugadores</button>
+    <button data-tab="dts">DTs</button>
+    <button data-tab="torneo">Torneo</button>
+  </nav>
+  <main id="admMain"><div class="adm-empty">Cargando…</div></main>
+  <div id="admToast" class="adm-toast"></div>
+
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

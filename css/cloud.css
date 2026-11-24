@@ -1,0 +1,61 @@
+/* PAMBOL · estilos de la capa conectada (avisos, diálogos, cuenta, estados) */
+.pambol-toast-wrap { position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%); z-index: 99999; display: flex; flex-direction: column; gap: 6px; width: min(92vw, 420px); pointer-events: none; }
+.pambol-toast { background: #1e293b; color: #f8fafc; border: 1px solid rgba(255,255,255,.15); border-radius: 12px; padding: 10px 14px; font-size: 13px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,.45); opacity: 0; transform: translateY(10px); transition: all .25s ease; }
+.pambol-toast.show { opacity: 1; transform: none; }
+.pambol-toast.ok { border-color: rgba(34,197,94,.6); }
+.pambol-toast.err { border-color: rgba(239,68,68,.6); }
+
+.pambol-dialog-overlay { position: fixed; inset: 0; background: rgba(3,6,12,.72); z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.pambol-dialog { background: #151d30; border: 1px solid rgba(251,191,36,.35); border-radius: 16px; padding: 18px; width: min(100%, 400px); box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+.pambol-dialog-text { color: #f8fafc; font-size: 14px; line-height: 1.5; white-space: pre-line; margin: 0 0 14px; }
+.pambol-dialog-actions { display: flex; gap: 8px; justify-content: flex-end; }
+
+.pambol-btn { display: inline-block; background: var(--gold); color: #0b1220; border: 0; border-radius: 10px; padding: 10px 14px; font-weight: 900; font-size: 13px; cursor: pointer; text-decoration: none; }
+.pambol-btn.ghost { background: transparent; color: #cbd5e1; border: 1px solid rgba(255,255,255,.2); }
+.pambol-btn:disabled, .btn-save-quiniela:disabled { opacity: .5; cursor: not-allowed; }
+
+.pambol-status-banner { margin: 8px 12px; padding: 9px 12px; border-radius: 12px; background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.4); color: #dbeafe; font-size: 12px; line-height: 1.4; }
+.pambol-status-banner:empty { display: none; }
+.pambol-status-banner a, .pambol-status-banner button { color: var(--gold); font-weight: 800; background: none; border: 0; cursor: pointer; padding: 0; font-size: inherit; text-decoration: underline; }
+.pambol-update-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100001; background: #16a34a; color: #fff; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 8px 12px; font-size: 13px; font-weight: 800; }
+.pambol-update-bar button { background: #fff; color: #166534; border: 0; border-radius: 8px; padding: 5px 10px; font-weight: 900; cursor: pointer; }
+
+.pambol-empty { text-align: center; color: var(--text-muted); font-size: 12.5px; padding: 18px 10px; line-height: 1.5; }
+.pambol-muted { color: var(--text-muted); font-size: 11px; line-height: 1.4; }
+.pambol-note { background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.3); color: #fde68a; border-radius: 10px; padding: 8px 10px; font-size: 11.5px; margin-bottom: 8px; }
+.pambol-kicker { font-size: 10.5px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: .6px; margin-bottom: 6px; }
+.pambol-card { background: #090d16; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 6px 10px; }
+.pambol-line { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.06); font-size: 12.5px; color: #e2e8f0; }
+.pambol-line:last-child { border-bottom: 0; }
+.pambol-line .pos { color: #4ade80; } .pambol-line .neg { color: #f87171; }
+.pambol-acta-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.pambol-acta-head h3 { color: #fff; font-size: 17px; margin: 2px 0; }
+.pambol-acta-pts { font-size: 30px; font-weight: 950; color: var(--gold); text-align: right; }
+.pambol-acta-pts small { font-size: 12px; margin-left: 2px; }
+
+.pambol-form { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+.pambol-form label { font-size: 11px; font-weight: 800; color: #cbd5e1; margin-bottom: -4px; }
+.pambol-form .picker-search, .pambol-form .club-select { margin-bottom: 0; width: 100%; box-sizing: border-box; font-size: 16px; }
+.pambol-tabs { display: flex; gap: 6px; background: #090d16; padding: 4px; border-radius: 12px; }
+.pambol-tabs button { flex: 1; background: transparent; border: 0; color: var(--text-muted); font-weight: 800; padding: 8px; border-radius: 9px; cursor: pointer; font-size: 13px; }
+.pambol-tabs button.active { background: var(--gold); color: #0b1220; }
+.pambol-check { display: flex; gap: 8px; align-items: flex-start; font-size: 11.5px !important; color: #cbd5e1; font-weight: 600 !important; margin: 4px 0 !important; }
+.pambol-check input { margin-top: 2px; }
+.pambol-check a, .pambol-legal a { color: var(--gold); }
+.pambol-legal { margin-top: 14px; text-align: center; font-size: 10.5px; color: var(--text-muted); line-height: 1.6; }
+.pambol-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.pambol-stats-grid div { background: rgba(255,255,255,.05); border-radius: 10px; padding: 8px; text-align: center; }
+.pambol-stats-grid b { display: block; color: #fff; font-size: 16px; }
+.pambol-stats-grid span { font-size: 10px; color: var(--text-muted); }
+
+.pambol-in-squad { font-size: 9px; background: rgba(34,197,94,.2); color: #4ade80; padding: 1px 5px; border-radius: 6px; vertical-align: middle; }
+.score-card.pambol-locked { opacity: .92; }
+.pambol-fx-status { font-size: 9.5px; font-weight: 900; padding: 2px 6px; border-radius: 6px; background: rgba(255,255,255,.08); color: #cbd5e1; white-space: nowrap; }
+.pambol-fx-status.live { background: rgba(239,68,68,.2); color: #fca5a5; }
+.pambol-fx-status.finished { background: rgba(34,197,94,.15); color: #86efac; }
+.pambol-fx-status.unsaved { background: rgba(251,191,36,.18); color: #fde047; }
+.pambol-final-score { font-size: 22px; font-weight: 950; color: #fff; }
+.pambol-my-pick { font-size: 10.5px; color: var(--text-muted); font-weight: 700; }
+.pambol-pick-pts { font-size: 11px; font-weight: 900; padding: 2px 6px; border-radius: 6px; background: rgba(255,255,255,.08); color: #cbd5e1; }
+.pambol-pick-pts.p5 { background: rgba(34,197,94,.2); color: #4ade80; }
+.pambol-pick-pts.p3 { background: rgba(251,191,36,.18); color: #fde047; }
